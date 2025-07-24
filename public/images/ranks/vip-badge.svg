@@ -1,0 +1,26 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Crown shape -->
+  <path d="M20 30L30 20L40 25L50 20L60 25L70 20L80 30L75 70L25 70Z" fill="url(#vipGradient)" filter="url(#glow)"/>
+  
+  <!-- Gems -->
+  <circle cx="30" cy="35" r="3" fill="#DC2626"/>
+  <circle cx="50" cy="32" r="4" fill="#059669"/>
+  <circle cx="70" cy="35" r="3" fill="#DC2626"/>
+  
+  <!-- VIP Text -->
+  <text x="50" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">VIP</text>
+</svg>
