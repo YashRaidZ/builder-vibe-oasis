@@ -169,9 +169,9 @@ export default function Index() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="relative overflow-hidden border-gold/50">
+            <Card className="relative overflow-hidden gaming-card border-gold/50 group">
               <div className="absolute top-4 right-4">
-                <Badge className="bg-gold/20 text-gold border-gold/30">Popular</Badge>
+                <Badge className="bg-gold/20 text-gold border-gold/30 glow-gold">Popular</Badge>
               </div>
               <CardHeader>
                 <Crown className="h-12 w-12 text-gold mb-4" />
