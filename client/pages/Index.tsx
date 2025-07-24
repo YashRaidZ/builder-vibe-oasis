@@ -248,11 +248,11 @@ export default function Index() {
             Join thousands of players in the ultimate Minecraft experience. Your journey starts now.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-minecraft-gradient hover:bg-minecraft-green glow-green">
+            <Button size="lg" className="btn-neon text-black font-bold">
               <Play className="mr-2 h-5 w-5" />
               Join Server
             </Button>
-            <Button variant="outline" size="lg" className="border-minecraft-green text-minecraft-green hover:bg-minecraft-green hover:text-white">
+            <Button variant="outline" size="lg" className="border-neon-purple text-neon-purple hover:bg-purple-gradient hover:text-white glow-purple">
               <Users className="mr-2 h-5 w-5" />
               Join Discord
             </Button>
