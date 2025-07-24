@@ -184,7 +184,7 @@ export default function Store() {
       <section className="relative py-16 bg-gradient-to-b from-neon-green/5 to-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-neon-gradient bg-clip-text text-transparent">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-blue-purple-gradient bg-clip-text text-transparent">
               indusnetwork Store
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -204,7 +204,7 @@ export default function Store() {
                   className="pl-10 bg-card/50 border-border/50"
                 />
               </div>
-              <Button variant="outline" className="border-neon-green/30 text-neon-green">
+              <Button variant="outline" className="border-primary-blue/30 text-primary-blue">
                 <Filter className="mr-2 h-4 w-4" />
                 Filters
               </Button>
@@ -218,7 +218,7 @@ export default function Store() {
         <div className="container mx-auto px-4">
           <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
             <TabsList className="grid w-full grid-cols-6 mb-8 bg-card/50">
-              <TabsTrigger value="all" className="data-[state=active]:bg-neon-green data-[state=active]:text-black">
+              <TabsTrigger value="all" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
                 All Items
               </TabsTrigger>
               <TabsTrigger value="ranks" className="data-[state=active]:bg-gold data-[state=active]:text-black">
@@ -229,11 +229,11 @@ export default function Store() {
                 <Sword className="mr-2 h-4 w-4" />
                 Kits
               </TabsTrigger>
-              <TabsTrigger value="currency" className="data-[state=active]:bg-neon-green data-[state=active]:text-black">
+              <TabsTrigger value="currency" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
                 <Coins className="mr-2 h-4 w-4" />
                 Currency
               </TabsTrigger>
-              <TabsTrigger value="cosmetics" className="data-[state=active]:bg-neon-purple data-[state=active]:text-black">
+              <TabsTrigger value="cosmetics" className="data-[state=active]:bg-primary-purple data-[state=active]:text-white">
                 <Sparkles className="mr-2 h-4 w-4" />
                 Cosmetics
               </TabsTrigger>
@@ -259,7 +259,7 @@ export default function Store() {
                       return (
                         <Card key={item.id} className="gaming-card group relative overflow-hidden">
                           <div className="absolute top-4 right-4">
-                            <Badge className="bg-neon-green/20 text-neon-green border-neon-green/30 glow-green">
+                            <Badge className="bg-primary-blue/20 text-primary-blue border-primary-blue/30 glow-blue">
                               <Star className="h-3 w-3 mr-1" />
                               Popular
                             </Badge>
@@ -274,14 +274,14 @@ export default function Store() {
                           <CardHeader>
                             <Icon className={`h-12 w-12 mb-4 ${categoryColors[item.category]} group-hover:animate-pulse-glow`} />
                             <CardTitle className="text-xl">{item.name}</CardTitle>
-                            <div className="text-3xl font-bold text-neon-green">₹{item.price}</div>
+                            <div className="text-3xl font-bold text-primary-blue">₹{item.price}</div>
                           </CardHeader>
                           <CardContent>
                             <CardDescription className="mb-4 text-sm">
                               {item.description}
                             </CardDescription>
                             <Button 
-                              className="w-full btn-neon text-black font-bold"
+                              className="w-full btn-primary text-white font-bold"
                               onClick={() => {
                                 setSelectedItem(item);
                                 setPurchaseModal(true);
@@ -334,7 +334,7 @@ export default function Store() {
                         <CardHeader className="pb-2">
                           <Icon className={`h-10 w-10 mb-2 ${categoryColors[item.category]} group-hover:animate-float`} />
                           <CardTitle className="text-lg">{item.name}</CardTitle>
-                          <div className="text-2xl font-bold text-neon-green">₹{item.price}</div>
+                          <div className="text-2xl font-bold text-primary-blue">₹{item.price}</div>
                         </CardHeader>
                         <CardContent>
                           <CardDescription className="mb-4 text-xs line-clamp-2">
@@ -342,7 +342,7 @@ export default function Store() {
                           </CardDescription>
                           <Button 
                             size="sm"
-                            className="w-full bg-neon-gradient hover:glow-green text-black font-bold"
+                            className="w-full bg-blue-purple-gradient hover:glow-blue text-white font-bold"
                             onClick={() => {
                               setSelectedItem(item);
                               setPurchaseModal(true);
@@ -417,8 +417,8 @@ export default function Store() {
                 >
                   Cancel
                 </Button>
-                <Button 
-                  className="flex-1 btn-neon text-black font-bold"
+                <Button
+                  className="flex-1 btn-primary text-white font-bold"
                   onClick={handlePurchase}
                   disabled={purchasing || !auth.isAuthenticated}
                 >
