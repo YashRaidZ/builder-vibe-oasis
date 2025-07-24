@@ -83,6 +83,12 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Authentication API routes
+  app.post("/api/auth/request-verification", requestVerification);
+  app.post("/api/auth/verify-code", verifyCode);
+  app.get("/api/auth/status", getAuthStatus);
+  app.post("/api/auth/logout", logout);
+
   // Player API routes
   app.get("/api/players", getPlayers);
   app.get("/api/players/online", getOnlinePlayers);
