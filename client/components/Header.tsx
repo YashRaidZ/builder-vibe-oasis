@@ -36,7 +36,7 @@ export function Header() {
           <div className="flex gap-6 md:gap-10">
             <Link to="/" className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-minecraft-green" />
-              <span className="inline-block font-bold text-xl bg-minecraft-gradient bg-clip-text text-transparent">
+              <span className="inline-block font-bold text-xl bg-neon-gradient bg-clip-text text-transparent animate-glow-text">
                 indusnetwork
               </span>
             </Link>
