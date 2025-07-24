@@ -58,7 +58,7 @@ export default function Index() {
                   {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
-              <Button size="lg" className="bg-minecraft-gradient hover:bg-minecraft-green glow-green">
+              <Button size="lg" className="btn-neon text-black font-bold">
                 <Play className="mr-2 h-5 w-5" />
                 Join Server Now
               </Button>
