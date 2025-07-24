@@ -57,18 +57,20 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        minecraft: {
-          green: "hsl(var(--minecraft-green))",
-          "dark-green": "hsl(var(--minecraft-dark-green))",
+        primary: {
+          blue: "hsl(var(--primary-blue))",
+          purple: "hsl(var(--primary-purple))",
         },
-        neon: {
-          green: "hsl(var(--neon-green))",
-          purple: "hsl(var(--neon-purple))",
-          cyan: "hsl(var(--neon-cyan))",
+        dark: {
+          blue: "hsl(var(--dark-blue))",
+          purple: "hsl(var(--dark-purple))",
         },
-        gaming: {
-          purple: "hsl(var(--gaming-purple))",
-          blue: "hsl(var(--gaming-blue))",
+        light: {
+          blue: "hsl(var(--light-blue))",
+          purple: "hsl(var(--light-purple))",
+        },
+        accent: {
+          white: "hsl(var(--accent-white))",
         },
         gold: "hsl(var(--gold))",
         diamond: "hsl(var(--diamond))",
