@@ -273,8 +273,22 @@ export class RconManager extends EventEmitter {
   }
 }
 
-// Singleton instance
-export const rconManager = new RconManager();
+// Singleton instance - lazy initialization to prevent issues during build
+let _rconManager: RconManager | null = null;
+
+export const getRconManager = (): RconManager => {
+  if (!_rconManager) {
+    _rconManager = new RconManager();
+  }
+  return _rconManager;
+};
+
+// For backward compatibility
+export const rconManager = new Proxy({} as RconManager, {
+  get(target, prop) {
+    return getRconManager()[prop as keyof RconManager];
+  }
+});
 
 // Helper functions for common commands
 export const RconCommands = {
