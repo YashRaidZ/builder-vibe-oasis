@@ -1,7 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Shield, User, ShoppingCart, Settings, BarChart3 } from "lucide-react";
+import { Shield, User, ShoppingCart, Settings, BarChart3, LogOut } from "lucide-react";
+import { useState } from "react";
+import { LoginModal } from "./auth/LoginModal";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
 
 export function Header() {
   const location = useLocation();
