@@ -113,7 +113,7 @@ export default function Stats() {
         <User className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
         <h1 className="text-3xl font-bold mb-4">Player Statistics</h1>
         <p className="text-muted-foreground mb-8">Please log in to view your statistics</p>
-        <Button className="btn-neon text-black font-bold">
+        <Button className="btn-primary text-white font-bold">
           Login to View Stats
         </Button>
       </div>
