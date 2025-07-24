@@ -5,7 +5,7 @@ import {
   DeliveryAttempt,
   DeliveryCommand,
 } from "../../shared/database";
-import { rconManager, RconCommands } from "./rcon";
+import { getRconManager, RconCommands } from "./rcon";
 import { config } from "../../shared/config";
 
 export class DeliveryService extends EventEmitter {
