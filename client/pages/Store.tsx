@@ -157,6 +157,20 @@ export default function Store() {
     }
   };
 
+  const getItemImage = (item: StoreItem) => {
+    switch (item.type) {
+      case "rank":
+        return getRankImage(item.id.split('-')[0]); // vip-rank -> vip
+      case "kit":
+      case "item_bundle":
+        return getPackImage(item.id);
+      case "currency":
+        return images.ui.coins;
+      default:
+        return null;
+    }
+  };
+
   const getPurchaseStatus = (itemId: string) => {
     const purchase = userPurchases.find(p => p.itemId === itemId);
     return purchase?.status;
