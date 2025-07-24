@@ -72,7 +72,7 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-minecraft-green mb-2">500+</div>
+              <div className="text-3xl lg:text-4xl font-bold neon-text mb-2">500+</div>
               <div className="text-muted-foreground">Active Players</div>
             </div>
             <div className="text-center">
@@ -80,7 +80,7 @@ export default function Index() {
               <div className="text-muted-foreground">Server Uptime</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-diamond mb-2">10k+</div>
+              <div className="text-3xl lg:text-4xl font-bold neon-text-purple mb-2">10k+</div>
               <div className="text-muted-foreground">Items Sold</div>
             </div>
             <div className="text-center">
