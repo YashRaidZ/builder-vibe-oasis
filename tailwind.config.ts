@@ -57,6 +57,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        minecraft: {
+          green: "hsl(var(--minecraft-green))",
+          "dark-green": "hsl(var(--minecraft-dark-green))",
+        },
+        gold: "hsl(var(--gold))",
+        diamond: "hsl(var(--diamond))",
+        iron: "hsl(var(--iron))",
+        emerald: "hsl(var(--emerald))",
+        redstone: "hsl(var(--redstone))",
       },
       borderRadius: {
         lg: "var(--radius)",
