@@ -132,7 +132,7 @@ export class DeliveryService extends EventEmitter {
             await this.delay(command.delay * 1000);
           }
 
-          const response = await rconManager.executeImmediate(
+          const response = await getRconManager().executeImmediate(
             processedCommand.command,
             processedCommand.args,
             item.playerUsername,
