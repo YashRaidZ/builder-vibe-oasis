@@ -287,7 +287,17 @@ export default function Store() {
                           )}
 
                           <CardHeader>
-                            <Icon className={`h-12 w-12 mb-4 ${categoryColors[item.category]} group-hover:animate-pulse-glow`} />
+                            <div className="flex items-center justify-center mb-4">
+                              {getItemImage(item) ? (
+                                <img
+                                  src={getItemImage(item)!}
+                                  alt={item.name}
+                                  className="h-16 w-16 group-hover:animate-pulse-glow"
+                                />
+                              ) : (
+                                <Icon className={`h-12 w-12 ${categoryColors[item.category]} group-hover:animate-pulse-glow`} />
+                              )}
+                            </div>
                             <CardTitle className="text-xl">{item.name}</CardTitle>
                             <div className="text-3xl font-bold text-primary-blue">₹{item.price}</div>
                           </CardHeader>
