@@ -27,7 +27,9 @@ import {
   getStoreItem,
   createPurchase,
   getPurchases,
-  retryDelivery
+  retryDelivery,
+  getDeliveryStatus,
+  triggerManualDelivery
 } from "./routes/store";
 import {
   getLeaderboards,
