@@ -36,7 +36,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-minecraft-green/10 to-transparent" />
         <div className="container relative mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-minecraft-green/20 text-minecraft-green border-minecraft-green/30">
+            <Badge className="mb-6 bg-neon-green/20 text-neon-green border-neon-green/30 glow-green animate-pulse-glow">
               🚀 Now Online - Join 500+ Players
             </Badge>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-minecraft-green to-emerald bg-clip-text text-transparent">
