@@ -21,7 +21,7 @@ import { useState } from "react";
 export default function Index() {
   const [copied, setCopied] = useState(false);
   
-  const serverIP = "play.indusmc.com";
+  const serverIP = "indusnetwork.highms.pro:25826";
 
   const copyIP = () => {
     navigator.clipboard.writeText(serverIP);
@@ -40,7 +40,7 @@ export default function Index() {
               🚀 Now Online - Join 500+ Players
             </Badge>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-minecraft-green to-emerald bg-clip-text text-transparent">
-              Welcome to IndusMC
+              Welcome to indusnetwork
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Experience the ultimate Minecraft server with custom plugins, automated systems, 
@@ -97,7 +97,7 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">Server Features</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover what makes IndusMC the premier destination for Minecraft players
+              Discover what makes indusnetwork the premier destination for Minecraft players
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -163,7 +163,7 @@ export default function Index() {
       <section className="py-20 bg-card/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">IndusMC Store</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">indusnetwork Store</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Enhance your gameplay with premium ranks, items, and cosmetics
             </p>
