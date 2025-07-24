@@ -39,7 +39,7 @@ export default function Index() {
             <Badge className="mb-6 bg-neon-green/20 text-neon-green border-neon-green/30 glow-green animate-pulse-glow">
               🚀 Now Online - Join 500+ Players
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-minecraft-green to-emerald bg-clip-text text-transparent">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-neon-green via-neon-cyan to-neon-purple bg-clip-text text-transparent animate-glow-text">
               Welcome to indusnetwork
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
