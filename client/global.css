@@ -111,77 +111,90 @@
 
   /* Gaming-specific color variables */
   :root {
-    --minecraft-green: 142 76% 36%;
-    --minecraft-dark-green: 142 76% 28%;
-    --neon-green: 120 100% 50%;
-    --neon-purple: 280 100% 70%;
-    --neon-cyan: 180 100% 50%;
+    --primary-blue: 210 100% 45%;
+    --dark-blue: 220 100% 25%;
+    --light-blue: 210 100% 65%;
+    --primary-purple: 270 100% 55%;
+    --dark-purple: 280 100% 35%;
+    --light-purple: 270 100% 75%;
+    --accent-white: 0 0% 95%;
+    --pure-white: 0 0% 100%;
     --gold: 45 100% 51%;
     --diamond: 180 100% 85%;
     --iron: 220 10% 70%;
     --emerald: 140 100% 35%;
     --redstone: 0 100% 50%;
-    --gaming-purple: 270 50% 40%;
-    --gaming-blue: 240 100% 60%;
   }
 
   .dark {
-    --minecraft-green: 142 76% 40%;
-    --minecraft-dark-green: 142 76% 32%;
-    --neon-green: 120 100% 60%;
-    --neon-purple: 280 100% 80%;
-    --gaming-purple: 270 50% 50%;
+    --primary-blue: 210 100% 50%;
+    --light-blue: 210 100% 70%;
+    --primary-purple: 270 100% 60%;
+    --light-purple: 270 100% 80%;
   }
 
   /* Custom gradient backgrounds */
-  .bg-minecraft-gradient {
-    background: linear-gradient(135deg, hsl(var(--minecraft-dark-green)) 0%, hsl(var(--neon-green)) 100%);
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, hsl(var(--dark-blue)) 0%, hsl(var(--primary-blue)) 100%);
   }
 
   .bg-gaming-dark {
     background:
-      radial-gradient(circle at 20% 50%, hsl(var(--gaming-purple) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--neon-green) / 0.1) 0%, transparent 50%),
-      linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(210 10% 5%) 100%);
+      radial-gradient(circle at 20% 50%, hsl(var(--dark-purple) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--primary-blue) / 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(230 40% 4%) 100%);
   }
 
-  .bg-neon-gradient {
-    background: linear-gradient(135deg, hsl(var(--neon-green)) 0%, hsl(var(--neon-purple)) 100%);
+  .bg-blue-purple-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary-blue)) 0%, hsl(var(--primary-purple)) 100%);
   }
 
   .bg-purple-gradient {
-    background: linear-gradient(135deg, hsl(var(--gaming-purple)) 0%, hsl(var(--neon-purple)) 100%);
+    background: linear-gradient(135deg, hsl(var(--dark-purple)) 0%, hsl(var(--primary-purple)) 100%);
   }
 
   /* Enhanced glow effects */
-  .glow-green {
+  .glow-blue {
     box-shadow:
-      0 0 20px hsl(var(--neon-green) / 0.4),
-      0 0 40px hsl(var(--neon-green) / 0.2),
-      0 0 80px hsl(var(--neon-green) / 0.1);
+      0 0 20px hsl(var(--primary-blue) / 0.4),
+      0 0 40px hsl(var(--primary-blue) / 0.2),
+      0 0 80px hsl(var(--primary-blue) / 0.1);
     transition: all 0.3s ease;
   }
 
-  .glow-green:hover {
+  .glow-blue:hover {
     box-shadow:
-      0 0 30px hsl(var(--neon-green) / 0.6),
-      0 0 60px hsl(var(--neon-green) / 0.3),
-      0 0 120px hsl(var(--neon-green) / 0.15);
+      0 0 30px hsl(var(--primary-blue) / 0.6),
+      0 0 60px hsl(var(--primary-blue) / 0.3),
+      0 0 120px hsl(var(--primary-blue) / 0.15);
   }
 
   .glow-purple {
     box-shadow:
-      0 0 20px hsl(var(--neon-purple) / 0.4),
-      0 0 40px hsl(var(--neon-purple) / 0.2),
-      0 0 80px hsl(var(--neon-purple) / 0.1);
+      0 0 20px hsl(var(--primary-purple) / 0.4),
+      0 0 40px hsl(var(--primary-purple) / 0.2),
+      0 0 80px hsl(var(--primary-purple) / 0.1);
     transition: all 0.3s ease;
   }
 
   .glow-purple:hover {
     box-shadow:
-      0 0 30px hsl(var(--neon-purple) / 0.6),
-      0 0 60px hsl(var(--neon-purple) / 0.3),
-      0 0 120px hsl(var(--neon-purple) / 0.15);
+      0 0 30px hsl(var(--primary-purple) / 0.6),
+      0 0 60px hsl(var(--primary-purple) / 0.3),
+      0 0 120px hsl(var(--primary-purple) / 0.15);
+  }
+
+  .glow-white {
+    box-shadow:
+      0 0 20px hsl(var(--accent-white) / 0.4),
+      0 0 40px hsl(var(--accent-white) / 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glow-white:hover {
+    box-shadow:
+      0 0 30px hsl(var(--accent-white) / 0.6),
+      0 0 60px hsl(var(--accent-white) / 0.3);
   }
 
   .glow-gold {
@@ -212,10 +225,10 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px hsl(var(--neon-green) / 0.4);
+      box-shadow: 0 0 20px hsl(var(--primary-blue) / 0.4);
     }
     50% {
-      box-shadow: 0 0 40px hsl(var(--neon-green) / 0.8);
+      box-shadow: 0 0 40px hsl(var(--primary-blue) / 0.8);
     }
   }
 
@@ -230,10 +243,10 @@
 
   @keyframes glow-text {
     0% {
-      text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5);
+      text-shadow: 0 0 10px hsl(var(--primary-blue) / 0.5);
     }
     100% {
-      text-shadow: 0 0 20px hsl(var(--neon-green) / 0.8);
+      text-shadow: 0 0 20px hsl(var(--primary-purple) / 0.8);
     }
   }
 
@@ -256,35 +269,44 @@
 
   /* Neon text effects */
   .neon-text {
-    color: hsl(var(--neon-green));
+    color: hsl(var(--primary-blue));
     text-shadow:
-      0 0 5px hsl(var(--neon-green) / 0.5),
-      0 0 10px hsl(var(--neon-green) / 0.3),
-      0 0 20px hsl(var(--neon-green) / 0.2);
+      0 0 5px hsl(var(--primary-blue) / 0.5),
+      0 0 10px hsl(var(--primary-blue) / 0.3),
+      0 0 20px hsl(var(--primary-blue) / 0.2);
   }
 
   .neon-text-purple {
-    color: hsl(var(--neon-purple));
+    color: hsl(var(--primary-purple));
     text-shadow:
-      0 0 5px hsl(var(--neon-purple) / 0.5),
-      0 0 10px hsl(var(--neon-purple) / 0.3),
-      0 0 20px hsl(var(--neon-purple) / 0.2);
+      0 0 5px hsl(var(--primary-purple) / 0.5),
+      0 0 10px hsl(var(--primary-purple) / 0.3),
+      0 0 20px hsl(var(--primary-purple) / 0.2);
+  }
+
+  .neon-text-white {
+    color: hsl(var(--accent-white));
+    text-shadow:
+      0 0 5px hsl(var(--accent-white) / 0.5),
+      0 0 10px hsl(var(--accent-white) / 0.3),
+      0 0 20px hsl(var(--accent-white) / 0.2);
   }
 
   /* Enhanced button styles */
-  .btn-neon {
-    background: linear-gradient(135deg, hsl(var(--neon-green)) 0%, hsl(var(--neon-cyan)) 100%);
+  .btn-primary {
+    background: linear-gradient(135deg, hsl(var(--primary-blue)) 0%, hsl(var(--primary-purple)) 100%);
     border: none;
+    color: hsl(var(--accent-white));
     box-shadow:
-      0 0 20px hsl(var(--neon-green) / 0.4),
+      0 0 20px hsl(var(--primary-blue) / 0.4),
       inset 0 1px 0 hsl(255 255 255 / 0.2);
     transition: all 0.3s ease;
   }
 
-  .btn-neon:hover {
+  .btn-primary:hover {
     box-shadow:
-      0 0 30px hsl(var(--neon-green) / 0.6),
-      0 0 60px hsl(var(--neon-green) / 0.3),
+      0 0 30px hsl(var(--primary-blue) / 0.6),
+      0 0 60px hsl(var(--primary-purple) / 0.3),
       inset 0 1px 0 hsl(255 255 255 / 0.3);
     transform: translateY(-2px);
   }
@@ -306,11 +328,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, hsl(var(--neon-green)) 0%, hsl(var(--neon-purple)) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary-blue)) 0%, hsl(var(--primary-purple)) 100%);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, hsl(var(--neon-green) / 0.8) 0%, hsl(var(--neon-purple) / 0.8) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary-blue) / 0.8) 0%, hsl(var(--primary-purple) / 0.8) 100%);
   }
 }
