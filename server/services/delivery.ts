@@ -407,8 +407,22 @@ export class DeliveryService extends EventEmitter {
   }
 }
 
-// Singleton instance
-export const deliveryService = new DeliveryService();
+// Singleton instance - lazy initialization to prevent issues during build
+let _deliveryService: DeliveryService | null = null;
+
+export const getDeliveryService = (): DeliveryService => {
+  if (!_deliveryService) {
+    _deliveryService = new DeliveryService();
+  }
+  return _deliveryService;
+};
+
+// For backward compatibility
+export const deliveryService = new Proxy({} as DeliveryService, {
+  get(target, prop) {
+    return getDeliveryService()[prop as keyof DeliveryService];
+  }
+});
 
 // Helper functions for common delivery scenarios
 export const DeliveryHelpers = {
