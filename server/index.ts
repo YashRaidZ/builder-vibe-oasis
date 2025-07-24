@@ -51,7 +51,28 @@ export function createServer() {
 
   // Example API routes
   app.get("/api/ping", (_req, res) => {
-    res.json({ message: "Hello from Express server v2!" });
+    res.json({
+      message: "Hello from indusnetwork API v2!",
+      timestamp: new Date().toISOString(),
+      environment: config.server.nodeEnv,
+      version: "2.0.0"
+    });
+  });
+
+  // Environment info endpoint (non-sensitive data only)
+  app.get("/api/info", (_req, res) => {
+    res.json({
+      server: {
+        environment: config.server.nodeEnv,
+        features: config.features,
+      },
+      minecraft: {
+        serverHost: config.minecraft.server.host,
+        serverPort: config.minecraft.server.port,
+      },
+      version: "2.0.0",
+      timestamp: new Date().toISOString()
+    });
   });
 
   app.get("/api/demo", handleDemo);
