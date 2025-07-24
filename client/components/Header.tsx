@@ -31,12 +31,12 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full ui-glass border-b border-neon-green/20">
+      <header className="sticky top-0 z-50 w-full ui-glass border-b border-primary-blue/20">
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-6 md:gap-10">
             <Link to="/" className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-minecraft-green" />
-              <span className="inline-block font-bold text-xl bg-neon-gradient bg-clip-text text-transparent animate-glow-text">
+              <Shield className="h-8 w-8 text-primary-blue" />
+              <span className="inline-block font-bold text-xl bg-blue-purple-gradient bg-clip-text text-transparent animate-glow-text">
                 indusnetwork
               </span>
             </Link>
@@ -120,7 +120,7 @@ export function Header() {
                   Login
                 </Button>
               )}
-              <Button size="sm" className="btn-neon text-black font-bold">
+              <Button size="sm" className="btn-primary text-white font-bold">
                 Join Server
               </Button>
             </nav>
