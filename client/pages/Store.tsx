@@ -23,7 +23,7 @@ import {
   XCircle,
   Clock
 } from "lucide-react";
-import { StoreItem, Purchase } from "@shared/types";
+import { StoreItem, Purchase } from "../../shared/types";
 import { useAuth } from "@/hooks/useAuth";
 
 const categoryIcons = {
