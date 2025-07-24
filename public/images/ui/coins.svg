@@ -1,0 +1,33 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="coinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Back coins -->
+  <circle cx="35" cy="55" r="18" fill="url(#coinGradient)" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="65" cy="60" r="18" fill="url(#coinGradient)" opacity="0.8" filter="url(#glow)"/>
+  
+  <!-- Front coin -->
+  <circle cx="50" cy="40" r="22" fill="url(#coinGradient)" filter="url(#glow)"/>
+  <circle cx="50" cy="40" r="18" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="50" cy="40" r="12" fill="none" stroke="#D97706" stroke-width="1.5"/>
+  
+  <!-- Coin symbol -->
+  <text x="50" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#92400E">₹</text>
+  
+  <!-- Sparkles -->
+  <polygon points="20,20 22,25 27,23 22,28 20,33 18,28 13,30 18,25" fill="#FCD34D" opacity="0.8"/>
+  <polygon points="75,25 77,30 82,28 77,33 75,38 73,33 68,35 73,30" fill="#FCD34D" opacity="0.6"/>
+  <polygon points="25,75 27,80 32,78 27,83 25,88 23,83 18,85 23,80" fill="#FCD34D" opacity="0.7"/>
+</svg>
