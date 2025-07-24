@@ -22,7 +22,7 @@ import {
   Activity,
   Zap
 } from "lucide-react";
-import { Player, Achievement, Leaderboard } from "@shared/types";
+import { Player, Achievement, Leaderboard } from "../../shared/types";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Stats() {
