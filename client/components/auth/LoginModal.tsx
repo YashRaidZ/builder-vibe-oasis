@@ -7,7 +7,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Shield, AlertCircle, CheckCircle2, Copy, Clock } from "lucide-react";
-import { VerificationResponse, VerifyCodeResponse } from "@shared/auth";
+import { VerificationResponse, VerifyCodeResponse } from "../../../shared/auth";
 
 interface LoginModalProps {
   open: boolean;
