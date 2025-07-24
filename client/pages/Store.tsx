@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { StoreItem, Purchase } from "../../shared/types";
 import { useAuth } from "@/hooks/useAuth";
+import { images, getPackImage, getRankImage } from "@/lib/images";
 
 const categoryIcons = {
   ranks: Crown,
