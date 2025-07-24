@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { Plugin, PluginCommand, PluginPermission, ApiResponse } from "@shared/types";
+import { Plugin, PluginCommand, PluginPermission, ApiResponse } from "../../shared/types";
 
 // Mock plugin data
 const mockPlugins: Plugin[] = [
