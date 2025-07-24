@@ -3,6 +3,12 @@ import cors from "cors";
 import { config } from "@shared/config";
 import { handleDemo } from "./routes/demo";
 import {
+  requestVerification,
+  verifyCode,
+  getAuthStatus,
+  logout
+} from "./routes/auth";
+import {
   getPlayers,
   getPlayer,
   updatePlayerRank,
