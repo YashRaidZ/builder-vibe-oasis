@@ -6,13 +6,13 @@ import {
   requestVerification,
   verifyCode,
   getAuthStatus,
-  logout
+  logout,
 } from "./routes/auth";
 import {
   getPlayers,
   getPlayer,
   updatePlayerRank,
-  getOnlinePlayers
+  getOnlinePlayers,
 } from "./routes/players";
 import {
   getServerStatus,
@@ -20,7 +20,7 @@ import {
   restartServer,
   stopServer,
   getServerActions,
-  createBackup
+  createBackup,
 } from "./routes/server";
 import {
   getStoreItems,
@@ -29,13 +29,13 @@ import {
   getPurchases,
   retryDelivery,
   getDeliveryStatus,
-  triggerManualDelivery
+  triggerManualDelivery,
 } from "./routes/store";
 import {
   getLeaderboards,
   getLeaderboard,
   getPlayerRanking,
-  updateLeaderboards
+  updateLeaderboards,
 } from "./routes/leaderboards";
 import {
   getPlugins,
@@ -43,19 +43,21 @@ import {
   togglePlugin,
   reloadPlugin,
   getPluginCommands,
-  getPluginPermissions
+  getPluginPermissions,
 } from "./routes/plugins";
 
 export function createServer() {
   const app = express();
 
   // Middleware
-  app.use(cors({
-    origin: config.dev.enableCors ? true : false,
-    credentials: true
-  }));
-  app.use(express.json({ limit: '10mb' }));
-  app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+  app.use(
+    cors({
+      origin: config.dev.enableCors ? true : false,
+      credentials: true,
+    }),
+  );
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
   // Example API routes
   app.get("/api/ping", (_req, res) => {
@@ -63,7 +65,7 @@ export function createServer() {
       message: "Hello from indusnetwork API v2!",
       timestamp: new Date().toISOString(),
       environment: config.server.nodeEnv,
-      version: "2.0.0"
+      version: "2.0.0",
     });
   });
 
@@ -79,7 +81,7 @@ export function createServer() {
         serverPort: config.minecraft.server.port,
       },
       version: "2.0.0",
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
   });
 

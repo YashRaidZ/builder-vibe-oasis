@@ -5,6 +5,7 @@ This document outlines the comprehensive data management system for the IndusNet
 ## 📊 **System Overview**
 
 The IndusNetwork data management system provides:
+
 - **Real-time player data** tracking and management
 - **Instant delivery system** with RCON integration
 - **Comprehensive store management** with 8+ ranks and multiple item categories
@@ -14,6 +15,7 @@ The IndusNetwork data management system provides:
 ## 🏗️ **Database Schema**
 
 ### **Player Data Structure**
+
 ```typescript
 interface PlayerData {
   id: string;
@@ -34,6 +36,7 @@ interface PlayerData {
 ```
 
 ### **Store System**
+
 ```typescript
 interface StoreItemData {
   id: string;
@@ -41,7 +44,7 @@ interface StoreItemData {
   category: StoreCategory; // 11 categories
   type: ItemType;
   price: number;
-  currency: 'money' | 'gems';
+  currency: "money" | "gems";
   deliveryCommands: DeliveryCommand[];
   requirements: ItemRequirement[];
   // Analytics and metadata
@@ -51,6 +54,7 @@ interface StoreItemData {
 ## 🎮 **Rank System**
 
 ### **Available Ranks (12 Total)**
+
 1. **Default** - Free starter rank
 2. **Helper** - Staff helper role
 3. **VIP** (₹199) - Flight, heal, feed, 3 homes, 25% XP boost
@@ -65,7 +69,9 @@ interface StoreItemData {
 12. **Owner** - Server owner permissions
 
 ### **Rank Features**
+
 Each rank includes:
+
 - **Permissions**: LuckPerms integration
 - **Commands**: Custom command access
 - **Limits**: Home/warp limits
@@ -75,6 +81,7 @@ Each rank includes:
 ## 🛒 **Store Categories & Items**
 
 ### **Categories (11 Total)**
+
 1. **Ranks** - All purchasable ranks with instant promotion
 2. **Kits** - Starter, Builder, Combat, Premium kits
 3. **Currency** - Coins (1K, 5K) and Gems (100, 500)
@@ -88,6 +95,7 @@ Each rank includes:
 11. **Special** - Limited-time and exclusive items
 
 ### **Sample Items**
+
 - **VIP Rank**: Instant flight, heal, feed access
 - **Starter Kit**: Diamond armor, tools, food, building materials
 - **Combat Kit**: Netherite gear with enchantments, potions
@@ -97,6 +105,7 @@ Each rank includes:
 ## ⚡ **Instant Delivery System**
 
 ### **Delivery Flow**
+
 1. **Purchase Created** → Payment processing begins
 2. **Payment Completed** → Item queued for delivery
 3. **RCON Commands** → Executed in sequence with delays
@@ -104,6 +113,7 @@ Each rank includes:
 5. **Status Tracking** → Real-time updates in admin panel
 
 ### **Delivery Methods**
+
 ```typescript
 // Rank upgrades
 DeliveryHelpers.rankUpgrade(username, rank, transactionId, immediate);
@@ -112,10 +122,17 @@ DeliveryHelpers.rankUpgrade(username, rank, transactionId, immediate);
 DeliveryHelpers.giveCoins(username, amount, transactionId, immediate);
 
 // Kit delivery
-DeliveryHelpers.deliverKit(username, kitItems, kitName, transactionId, immediate);
+DeliveryHelpers.deliverKit(
+  username,
+  kitItems,
+  kitName,
+  transactionId,
+  immediate,
+);
 ```
 
 ### **RCON Integration**
+
 - **Connection Management**: Automatic reconnection and health checks
 - **Command Queue**: Priority-based command execution
 - **Error Handling**: Retry logic and failure notifications
@@ -124,6 +141,7 @@ DeliveryHelpers.deliverKit(username, kitItems, kitName, transactionId, immediate
 ## 🔧 **Delivery Commands**
 
 ### **Rank Promotion Commands**
+
 ```bash
 lp user {username} parent set {rank}
 broadcast {username} has been promoted to {rank}!
@@ -132,6 +150,7 @@ title {username} subtitle {"text":"Welcome to {rank}","color":"yellow"}
 ```
 
 ### **Item Delivery Commands**
+
 ```bash
 give {username} {item} {quantity} {nbt}
 eco give {username} {amount}
@@ -139,6 +158,7 @@ tellraw {username} {"text":"Items delivered!","color":"green"}
 ```
 
 ### **Kit Delivery Examples**
+
 ```bash
 # Starter Kit
 give {username} diamond_helmet 1
@@ -154,6 +174,7 @@ give {username} potion 8 {Potion:"strong_strength"}
 ## 📈 **Transaction Tracking**
 
 ### **Purchase States**
+
 - **Pending** - Payment being processed
 - **Processing** - Payment confirmed, delivery in progress
 - **Paid** - Payment complete, awaiting delivery
@@ -162,6 +183,7 @@ give {username} potion 8 {Potion:"strong_strength"}
 - **Refunded** - Payment refunded
 
 ### **Delivery States**
+
 - **Pending** - Waiting for delivery
 - **Processing** - Commands being executed
 - **Delivered** - Successfully completed
@@ -169,6 +191,7 @@ give {username} potion 8 {Potion:"strong_strength"}
 - **Partial** - Some commands succeeded
 
 ### **Tracking Features**
+
 - **Attempt Counter**: Tracks delivery attempts (max 3)
 - **Error Logging**: Detailed failure reasons
 - **Retry Logic**: Automatic and manual retry options
@@ -177,18 +200,21 @@ give {username} potion 8 {Potion:"strong_strength"}
 ## 👨‍💼 **Admin Dashboard Features**
 
 ### **Real-time Monitoring**
+
 - **Server Statistics**: TPS, memory, online players
 - **RCON Status**: Connection health and command queue
 - **Purchase Analytics**: Revenue, success rates, popular items
 - **Delivery Queue**: Live monitoring of all deliveries
 
 ### **Management Tools**
+
 - **RCON Console**: Direct server command execution
 - **Manual Delivery**: Force delivery for failed purchases
 - **Queue Management**: Retry, cancel, or prioritize deliveries
 - **Player Management**: View stats, modify ranks, handle issues
 
 ### **Quick Actions**
+
 ```bash
 # Common RCON commands
 list                    # Show online players
@@ -201,6 +227,7 @@ kick player reason     # Kick problematic players
 ## 🔒 **Security & Reliability**
 
 ### **Security Measures**
+
 - **Authentication**: JWT tokens for API access
 - **Authorization**: Role-based admin access
 - **Rate Limiting**: Prevent API abuse
@@ -208,6 +235,7 @@ kick player reason     # Kick problematic players
 - **Audit Logging**: Track all admin actions
 
 ### **Reliability Features**
+
 - **Connection Monitoring**: Automatic RCON reconnection
 - **Queue Persistence**: Deliveries survive server restarts
 - **Error Recovery**: Comprehensive retry mechanisms
@@ -216,12 +244,14 @@ kick player reason     # Kick problematic players
 ## 📊 **Analytics & Reporting**
 
 ### **Purchase Analytics**
+
 - **Revenue Tracking**: Daily, weekly, monthly totals
 - **Popular Items**: Best-selling ranks and items
 - **Success Rates**: Delivery completion percentages
 - **Player Behavior**: Purchase patterns and trends
 
 ### **Server Analytics**
+
 - **Performance Metrics**: TPS, memory usage, uptime
 - **Player Activity**: Online counts, peak times
 - **Command Execution**: RCON usage and success rates
@@ -230,6 +260,7 @@ kick player reason     # Kick problematic players
 ## 🚀 **API Endpoints**
 
 ### **Store Management**
+
 ```typescript
 GET    /api/store/items                    // List all items
 GET    /api/store/items/:id               // Get item details
@@ -243,16 +274,18 @@ POST   /api/store/delivery/manual/:id     // Manual delivery
 ```
 
 ### **Server Management**
+
 ```typescript
-GET    /api/server/status                 // Server statistics
-POST   /api/server/rcon                  // Execute RCON command
-POST   /api/server/restart               // Restart server
-GET    /api/server/actions               // Server actions log
+GET / api / server / status; // Server statistics
+POST / api / server / rcon; // Execute RCON command
+POST / api / server / restart; // Restart server
+GET / api / server / actions; // Server actions log
 ```
 
 ## 🔧 **Configuration**
 
 ### **Environment Variables**
+
 ```bash
 # RCON Configuration
 MINECRAFT_RCON_HOST=indusnetwork.highms.pro
@@ -274,9 +307,14 @@ ENABLE_PAYMENTS=true
 ## 📝 **Usage Examples**
 
 ### **Making a Purchase**
+
 ```typescript
 // Frontend purchase flow
-const response = await api.store.createPurchase(itemId, playerId, playerUsername);
+const response = await api.store.createPurchase(
+  itemId,
+  playerId,
+  playerUsername,
+);
 // Backend automatically:
 // 1. Processes payment
 // 2. Queues delivery commands
@@ -285,22 +323,30 @@ const response = await api.store.createPurchase(itemId, playerId, playerUsername
 ```
 
 ### **Manual Delivery**
+
 ```typescript
 // Admin panel manual delivery
-const result = await api.store.triggerManualDelivery(purchaseId, playerUsername);
+const result = await api.store.triggerManualDelivery(
+  purchaseId,
+  playerUsername,
+);
 // Immediately executes delivery commands
 ```
 
 ### **Monitoring Queue**
+
 ```typescript
 // Real-time queue monitoring
 const status = await api.store.getDeliveryStatus();
-console.log(`Queue: ${status.queue.total} items, ${status.queue.processing} processing`);
+console.log(
+  `Queue: ${status.queue.total} items, ${status.queue.processing} processing`,
+);
 ```
 
 ## 🔄 **Development Workflow**
 
 ### **Adding New Items**
+
 1. **Define Item**: Add to `store-data.ts` with delivery commands
 2. **Create Commands**: Specify RCON commands for delivery
 3. **Add Images**: Create appropriate images in `/images/`
@@ -308,6 +354,7 @@ console.log(`Queue: ${status.queue.total} items, ${status.queue.processing} proc
 5. **Deploy**: Update production data
 
 ### **Adding New Ranks**
+
 1. **Rank Definition**: Add to `ranksData` with permissions
 2. **LuckPerms Setup**: Configure server-side permissions
 3. **Delivery Commands**: Set promotion commands
@@ -317,18 +364,21 @@ console.log(`Queue: ${status.queue.total} items, ${status.queue.processing} proc
 ## 🎯 **Best Practices**
 
 ### **Delivery Commands**
+
 - **Use delays**: Prevent command spam
 - **Add retries**: Handle temporary failures
 - **Validate targets**: Check player existence
 - **Send feedback**: Notify players of results
 
 ### **Error Handling**
+
 - **Log everything**: Comprehensive error logging
 - **Graceful degradation**: System continues with failures
 - **User feedback**: Clear error messages
 - **Admin alerts**: Notify of critical issues
 
 ### **Performance**
+
 - **Queue management**: Process in batches
 - **Connection pooling**: Reuse RCON connections
 - **Caching**: Cache frequently accessed data

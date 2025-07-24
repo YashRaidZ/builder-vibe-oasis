@@ -23,23 +23,23 @@ export interface PlayerData {
   lastSeen: Date;
   joinDate: Date;
   ipAddress?: string;
-  
+
   // Statistics
   stats: PlayerStats;
-  
+
   // Preferences
   preferences: PlayerPreferences;
-  
+
   // Verification
   isVerified: boolean;
   verificationCode?: string;
   verificationExpiry?: Date;
-  
+
   // Status
   isOnline: boolean;
   currentWorld?: string;
   location?: PlayerLocation;
-  
+
   // Moderation
   isBanned: boolean;
   banReason?: string;
@@ -53,18 +53,18 @@ export interface PlayerStats {
   deaths: number;
   mobKills: number;
   playerKills: number;
-  
+
   // Building
   blocksPlaced: number;
   blocksBroken: number;
-  
+
   // Economy
   moneyEarned: number;
   moneySpent: number;
-  
+
   // Achievements
   achievementsUnlocked: number;
-  
+
   // Social
   friendsCount: number;
   guildId?: string;
@@ -99,23 +99,23 @@ export interface Warning {
   reason: string;
   issuedBy: string;
   issuedAt: Date;
-  severity: 'low' | 'medium' | 'high';
+  severity: "low" | "medium" | "high";
 }
 
 // Enhanced Rank system
-export type PlayerRank = 
-  | 'default' 
-  | 'helper' 
-  | 'vip' 
-  | 'vip+' 
-  | 'mvp' 
-  | 'mvp+' 
-  | 'legend' 
-  | 'legend+' 
-  | 'ultimate'
-  | 'moderator' 
-  | 'admin' 
-  | 'owner';
+export type PlayerRank =
+  | "default"
+  | "helper"
+  | "vip"
+  | "vip+"
+  | "mvp"
+  | "mvp+"
+  | "legend"
+  | "legend+"
+  | "ultimate"
+  | "moderator"
+  | "admin"
+  | "owner";
 
 export interface RankData {
   id: PlayerRank;
@@ -138,7 +138,7 @@ export interface RankFeature {
   id: string;
   name: string;
   description: string;
-  type: 'command' | 'permission' | 'limit' | 'bonus';
+  type: "command" | "permission" | "limit" | "bonus";
   value?: string | number;
 }
 
@@ -153,55 +153,55 @@ export interface StoreItemData {
   type: ItemType;
   price: number;
   originalPrice?: number; // For discounts
-  currency: 'money' | 'gems';
-  
+  currency: "money" | "gems";
+
   // Availability
   isAvailable: boolean;
   isPermanent: boolean;
   isLimited: boolean;
   stock?: number;
   maxPurchases?: number;
-  
+
   // Metadata
   tags: string[];
   featured: boolean;
   popular: boolean;
   isNew: boolean;
   discount?: number; // Percentage
-  
+
   // Delivery
   deliveryCommands: DeliveryCommand[];
   deliveryMessage?: string;
-  
+
   // Requirements
   requirements: ItemRequirement[];
-  
+
   // Visual
   icon: string;
   image?: string;
   preview?: string[];
-  
+
   // Analytics
   totalSales: number;
   rating: number;
   reviews: number;
-  
+
   createdAt: Date;
   updatedAt: Date;
 }
 
-export type StoreCategory = 
-  | 'ranks' 
-  | 'kits' 
-  | 'items' 
-  | 'currency' 
-  | 'cosmetics' 
-  | 'tools' 
-  | 'weapons' 
-  | 'armor' 
-  | 'boosters' 
-  | 'access'
-  | 'special';
+export type StoreCategory =
+  | "ranks"
+  | "kits"
+  | "items"
+  | "currency"
+  | "cosmetics"
+  | "tools"
+  | "weapons"
+  | "armor"
+  | "boosters"
+  | "access"
+  | "special";
 
 export interface DeliveryCommand {
   command: string;
@@ -212,9 +212,9 @@ export interface DeliveryCommand {
 }
 
 export interface ItemRequirement {
-  type: 'rank' | 'level' | 'playtime' | 'achievement' | 'permission';
+  type: "rank" | "level" | "playtime" | "achievement" | "permission";
   value: string | number;
-  operator: 'eq' | 'gt' | 'gte' | 'lt' | 'lte';
+  operator: "eq" | "gt" | "gte" | "lt" | "lte";
 }
 
 // Purchase and Transaction system
@@ -224,55 +224,55 @@ export interface Transaction {
   itemId: string;
   quantity: number;
   totalPrice: number;
-  currency: 'money' | 'gems';
-  
+  currency: "money" | "gems";
+
   // Payment
-  paymentMethod: 'razorpay' | 'paypal' | 'stripe' | 'ingame';
+  paymentMethod: "razorpay" | "paypal" | "stripe" | "ingame";
   paymentId?: string;
   razorpayOrderId?: string;
   razorpayPaymentId?: string;
   razorpaySignature?: string;
-  
+
   // Status
   status: TransactionStatus;
   deliveryStatus: DeliveryStatus;
-  
+
   // Timestamps
   createdAt: Date;
   paidAt?: Date;
   deliveredAt?: Date;
   failedAt?: Date;
-  
+
   // Delivery
   deliveryAttempts: DeliveryAttempt[];
   deliveryError?: string;
-  
+
   // Metadata
   ipAddress?: string;
   userAgent?: string;
   discount?: number;
   couponCode?: string;
-  
+
   // Refund
   refundAmount?: number;
   refundReason?: string;
   refundedAt?: Date;
 }
 
-export type TransactionStatus = 
-  | 'pending' 
-  | 'processing' 
-  | 'paid' 
-  | 'failed' 
-  | 'cancelled' 
-  | 'refunded';
+export type TransactionStatus =
+  | "pending"
+  | "processing"
+  | "paid"
+  | "failed"
+  | "cancelled"
+  | "refunded";
 
-export type DeliveryStatus = 
-  | 'pending' 
-  | 'processing' 
-  | 'delivered' 
-  | 'failed' 
-  | 'partial';
+export type DeliveryStatus =
+  | "pending"
+  | "processing"
+  | "delivered"
+  | "failed"
+  | "partial";
 
 export interface DeliveryAttempt {
   id: string;
@@ -293,7 +293,7 @@ export interface DeliveryQueue {
   itemId: string;
   commands: DeliveryCommand[];
   priority: number; // Higher = more important
-  status: 'queued' | 'processing' | 'completed' | 'failed';
+  status: "queued" | "processing" | "completed" | "failed";
   attempts: number;
   maxAttempts: number;
   nextAttempt?: Date;
@@ -334,7 +334,7 @@ export interface SalesAnalytics {
   itemId: string;
   quantity: number;
   revenue: number;
-  currency: 'money' | 'gems';
+  currency: "money" | "gems";
 }
 
 export interface PlayerAnalytics {
@@ -382,15 +382,15 @@ export interface Notification {
   readAt?: Date;
 }
 
-export type NotificationType = 
-  | 'purchase_success' 
-  | 'purchase_failed' 
-  | 'delivery_success' 
-  | 'delivery_failed' 
-  | 'rank_upgrade' 
-  | 'achievement_unlock' 
-  | 'friend_request' 
-  | 'system_announcement';
+export type NotificationType =
+  | "purchase_success"
+  | "purchase_failed"
+  | "delivery_success"
+  | "delivery_failed"
+  | "rank_upgrade"
+  | "achievement_unlock"
+  | "friend_request"
+  | "system_announcement";
 
 // Configuration
 export interface SystemConfig {

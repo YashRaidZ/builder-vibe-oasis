@@ -6,7 +6,7 @@ This document lists all the image assets that need to be created or sourced for 
 
 - ✅ `indusnetwork-logo.svg` - Main brand logo
 - ✅ `vip-badge.svg` - VIP rank badge
-- ✅ `mvp-badge.svg` - MVP rank badge  
+- ✅ `mvp-badge.svg` - MVP rank badge
 - ✅ `legend-badge.svg` - LEGEND rank badge
 - ✅ `starter-kit.svg` - Starter pack image
 - ✅ `builder-kit.svg` - Builder pack image
@@ -18,16 +18,19 @@ This document lists all the image assets that need to be created or sourced for 
 ## 🔴 High Priority - Missing Assets
 
 ### Rank Badges
+
 - ⏳ `default-badge.svg` - Default player rank badge
 - ⏳ `admin-badge.svg` - Admin rank badge
 - ⏳ `moderator-badge.svg` - Moderator rank badge
 
 ### Store Packs
+
 - ⏳ `combat-kit.svg` - Combat/PvP pack image
 - ⏳ `premium-kit.svg` - Premium pack image
 - ⏳ `cosmetic-pack.svg` - Cosmetics pack image
 
 ### UI Elements
+
 - ⏳ `gems.svg` - Premium currency (gems) icon
 - ⏳ `loading.svg` - Loading spinner
 - ⏳ `error.svg` - Error state icon
@@ -35,6 +38,7 @@ This document lists all the image assets that need to be created or sourced for 
 - ⏳ `warning.svg` - Warning state icon
 
 ### Achievement Badges
+
 - ⏳ `master-builder.svg` - Master Builder achievement
 - ⏳ `rich-player.svg` - Rich Player achievement
 - ⏳ `long-player.svg` - Long Playtime achievement
@@ -44,16 +48,19 @@ This document lists all the image assets that need to be created or sourced for 
 ## 🟡 Medium Priority
 
 ### Player Avatars
+
 - ⏳ `male-avatar.svg` - Male player avatar variant
 - ⏳ `female-avatar.svg` - Female player avatar variant
 - ⏳ `custom-skin-template.svg` - Template for custom skins
 
 ### Backgrounds
+
 - ⏳ `hero-bg.jpg` - Hero section background (1920x1080)
 - ⏳ `gaming-bg.jpg` - Gaming background pattern
 - ⏳ `server-bg.jpg` - Server status background
 
 ### Icons
+
 - ⏳ `sword.svg` - Sword icon
 - ⏳ `shield.svg` - Shield icon
 - ⏳ `crown.svg` - Crown icon
@@ -64,16 +71,19 @@ This document lists all the image assets that need to be created or sourced for 
 ## 🟢 Low Priority
 
 ### Seasonal/Event Assets
+
 - ⏳ `halloween-logo.svg` - Halloween event logo
 - ⏳ `christmas-logo.svg` - Christmas event logo
 - ⏳ `anniversary-badge.svg` - Anniversary celebration badge
 
 ### Animated Assets
+
 - ⏳ `loading-animated.gif` - Animated loading spinner
 - ⏳ `coin-flip.gif` - Animated coin flip
 - ⏳ `rank-upgrade.gif` - Rank upgrade animation
 
 ### Social Media
+
 - ⏳ `discord-banner.jpg` - Discord server banner (960x540)
 - ⏳ `twitter-header.jpg` - Twitter header (1500x500)
 - ⏳ `facebook-cover.jpg` - Facebook cover (851x315)
@@ -81,12 +91,14 @@ This document lists all the image assets that need to be created or sourced for 
 ## 📋 Asset Specifications
 
 ### File Formats
+
 - **Logos/Icons**: SVG (vector format for scalability)
 - **Photographs**: JPG (optimized for web)
 - **Graphics with transparency**: PNG
 - **Animations**: GIF or WebP
 
 ### Sizes
+
 - **Logos**: 200x60px (main), 64x64px (favicon)
 - **Rank Badges**: 100x100px
 - **Pack Images**: 120x120px
@@ -95,6 +107,7 @@ This document lists all the image assets that need to be created or sourced for 
 - **Backgrounds**: 1920x1080px (desktop), responsive
 
 ### Colors
+
 - **Primary Blue**: #3B82F6
 - **Primary Purple**: #8B5CF6
 - **Dark Blue**: #1E3A8A
@@ -114,17 +127,20 @@ This document lists all the image assets that need to be created or sourced for 
 ## 🔧 Tools Recommended
 
 ### Vector Graphics (SVG)
+
 - Adobe Illustrator
 - Figma
 - Inkscape (free)
 - Sketch
 
 ### Image Editing
+
 - Adobe Photoshop
 - GIMP (free)
 - Canva (online)
 
 ### Minecraft-specific
+
 - BlockBench (for 3D models)
 - MCSkin3D (for player skins)
 - Nova Skin (online skin editor)
@@ -139,6 +155,7 @@ This document lists all the image assets that need to be created or sourced for 
 ## 🚀 Quick Creation Templates
 
 ### SVG Template Structure
+
 ```svg
 <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -152,15 +169,16 @@ This document lists all the image assets that need to be created or sourced for 
 ```
 
 ### Color Palette Reference
+
 ```css
 :root {
-  --primary-blue: #3B82F6;
-  --primary-purple: #8B5CF6;
-  --dark-blue: #1E3A8A;
-  --dark-purple: #581C87;
-  --gold: #F59E0B;
-  --emerald: #10B981;
-  --white: #FFFFFF;
+  --primary-blue: #3b82f6;
+  --primary-purple: #8b5cf6;
+  --dark-blue: #1e3a8a;
+  --dark-purple: #581c87;
+  --gold: #f59e0b;
+  --emerald: #10b981;
+  --white: #ffffff;
 }
 ```
 
@@ -175,6 +193,7 @@ This document lists all the image assets that need to be created or sourced for 
 ## 📞 Need Help?
 
 If you need assistance creating these assets:
+
 1. Check Figma Community for templates
 2. Use AI tools like Midjourney or DALL-E for concepts
 3. Hire freelance designers on Fiverr/Upwork

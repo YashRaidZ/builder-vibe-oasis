@@ -19,12 +19,14 @@ images/
 ## 🎨 Image Specifications
 
 ### Logos
+
 - **Format**: SVG preferred, PNG for complex graphics
 - **Size**: 200x60px for main logo
 - **Background**: Transparent
 - **Colors**: Blue (#3B82F6) to Purple (#8B5CF6) gradient
 
 ### Rank Badges
+
 - **Format**: SVG
 - **Size**: 100x100px
 - **Style**: Crown-based design with rank-specific colors
@@ -33,21 +35,25 @@ images/
   - LEGEND: Emerald (#10B981)
 
 ### Pack Images
+
 - **Format**: SVG
 - **Size**: 120x120px
 - **Style**: Chest with floating items representing the pack contents
 
 ### UI Elements
+
 - **Format**: SVG
 - **Size**: Variable (optimized for use case)
 - **Style**: Consistent with blue/purple theme
 
 ### Player Avatars
+
 - **Format**: SVG/PNG
 - **Size**: 64x64px (Minecraft head style)
 - **Style**: Pixelated Minecraft-style heads
 
 ### Achievement Badges
+
 - **Format**: SVG
 - **Size**: 80x80px
 - **Style**: Circular badges with achievement-specific icons
@@ -55,38 +61,45 @@ images/
 ## 🖼️ Current Assets
 
 ### Logos
+
 - ✅ `indusnetwork-logo.svg` - Main brand logo
 
 ### Ranks
+
 - ✅ `vip-badge.svg` - VIP rank badge
-- ✅ `mvp-badge.svg` - MVP rank badge  
+- ✅ `mvp-badge.svg` - MVP rank badge
 - ✅ `legend-badge.svg` - LEGEND rank badge
 - ⏳ `default-badge.svg` - Default player badge
 
 ### Packs
+
 - ✅ `starter-kit.svg` - Starter pack image
 - ✅ `builder-kit.svg` - Builder pack image
 - ⏳ `combat-kit.svg` - Combat pack image
 - ⏳ `premium-kit.svg` - Premium pack image
 
 ### UI Elements
+
 - ✅ `coins.svg` - Currency icon
 - ⏳ `gems.svg` - Premium currency icon
 - ⏳ `loading.svg` - Loading spinner
 - ⏳ `error.svg` - Error state icon
 
 ### Players
+
 - ✅ `default-avatar.svg` - Default player avatar
 - ⏳ `male-avatar.svg` - Male player avatar
 - ⏳ `female-avatar.svg` - Female player avatar
 
-### Achievements  
+### Achievements
+
 - ✅ `first-kill.svg` - First kill achievement
 - ⏳ `master-builder.svg` - Master builder achievement
 - ⏳ `rich-player.svg` - Rich player achievement
 - ⏳ `long-player.svg` - Long playtime achievement
 
 ### Backgrounds
+
 - ✅ `pattern.svg` - Background pattern
 - ⏳ `hero-bg.jpg` - Hero section background
 - ⏳ `gaming-bg.jpg` - Gaming background
@@ -109,14 +122,16 @@ import { images, getRankImage, getPackImage } from '@/lib/images';
 ## 📝 TODO - Missing Assets
 
 ### High Priority
+
 - [ ] Default rank badge
-- [ ] Combat kit image  
+- [ ] Combat kit image
 - [ ] Premium kit image
 - [ ] Gems UI icon
 - [ ] Loading spinner
 - [ ] Error state icon
 
 ### Medium Priority
+
 - [ ] Male/female player avatars
 - [ ] Additional achievement badges
 - [ ] Hero background image
@@ -124,6 +139,7 @@ import { images, getRankImage, getPackImage } from '@/lib/images';
 - [ ] Icon set (sword, shield, crown, star)
 
 ### Low Priority
+
 - [ ] Animated versions of static images
 - [ ] Dark/light theme variants
 - [ ] Seasonal/event-specific assets
@@ -156,6 +172,7 @@ To replace placeholder images:
 ## 🎮 Minecraft Integration
 
 For Minecraft-specific assets:
+
 - Use official Minecraft color palette
 - Maintain pixelated aesthetic for game-related images
 - Consider block-based designs for UI elements

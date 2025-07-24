@@ -1,18 +1,30 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { 
-  Crown, 
-  Sword, 
-  Coins, 
-  Sparkles, 
+import {
+  Crown,
+  Sword,
+  Coins,
+  Sparkles,
   Package,
-  ShoppingCart, 
+  ShoppingCart,
   Search,
   Filter,
   Star,
@@ -21,7 +33,7 @@ import {
   TrendingUp,
   CheckCircle,
   XCircle,
-  Clock
+  Clock,
 } from "lucide-react";
 import { StoreItem, Purchase } from "../../shared/types";
 import { useAuth } from "@/hooks/useAuth";
@@ -32,15 +44,15 @@ const categoryIcons = {
   items: Package,
   currency: Coins,
   cosmetics: Sparkles,
-  kits: Sword
+  kits: Sword,
 };
 
 const categoryColors = {
   ranks: "text-gold",
-  items: "text-emerald", 
+  items: "text-emerald",
   currency: "text-neon-green",
   cosmetics: "text-neon-purple",
-  kits: "text-diamond"
+  kits: "text-diamond",
 };
 
 export default function Store() {
@@ -52,7 +64,10 @@ export default function Store() {
   const [selectedItem, setSelectedItem] = useState<StoreItem | null>(null);
   const [purchaseModal, setPurchaseModal] = useState(false);
   const [purchasing, setPurchasing] = useState(false);
-  const [purchaseResult, setPurchaseResult] = useState<{ success: boolean; message: string } | null>(null);
+  const [purchaseResult, setPurchaseResult] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
   const [userPurchases, setUserPurchases] = useState<Purchase[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -83,9 +98,11 @@ export default function Store() {
 
   const fetchUserPurchases = async () => {
     if (!auth.user) return;
-    
+
     try {
-      const response = await fetch(`/api/store/purchases?playerId=${auth.user.id}`);
+      const response = await fetch(
+        `/api/store/purchases?playerId=${auth.user.id}`,
+      );
       const data = await response.json();
       if (data.success) {
         setUserPurchases(data.data);
@@ -99,13 +116,14 @@ export default function Store() {
     let filtered = storeItems;
 
     if (selectedCategory !== "all") {
-      filtered = filtered.filter(item => item.category === selectedCategory);
+      filtered = filtered.filter((item) => item.category === selectedCategory);
     }
 
     if (searchQuery) {
-      filtered = filtered.filter(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+      filtered = filtered.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
@@ -123,21 +141,27 @@ export default function Store() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${localStorage.getItem("auth_token")}`
+          Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
         },
         body: JSON.stringify({
           itemId: selectedItem.id,
-          playerId: auth.user.id
-        })
+          playerId: auth.user.id,
+        }),
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
-        setPurchaseResult({ success: true, message: "Purchase successful! Item will be delivered shortly." });
+        setPurchaseResult({
+          success: true,
+          message: "Purchase successful! Item will be delivered shortly.",
+        });
         fetchUserPurchases(); // Refresh purchase history
       } else {
-        setPurchaseResult({ success: false, message: data.error || "Purchase failed" });
+        setPurchaseResult({
+          success: false,
+          message: data.error || "Purchase failed",
+        });
       }
     } catch (error) {
       setPurchaseResult({ success: false, message: "Network error occurred" });
@@ -148,19 +172,25 @@ export default function Store() {
 
   const getItemIcon = (item: StoreItem) => {
     switch (item.type) {
-      case "rank": return Crown;
-      case "item_bundle": return Package;
-      case "currency": return Coins;
-      case "cosmetic": return Sparkles;
-      case "kit": return Sword;
-      default: return Gift;
+      case "rank":
+        return Crown;
+      case "item_bundle":
+        return Package;
+      case "currency":
+        return Coins;
+      case "cosmetic":
+        return Sparkles;
+      case "kit":
+        return Sword;
+      default:
+        return Gift;
     }
   };
 
   const getItemImage = (item: StoreItem) => {
     switch (item.type) {
       case "rank":
-        return getRankImage(item.id.split('-')[0]); // vip-rank -> vip
+        return getRankImage(item.id.split("-")[0]); // vip-rank -> vip
       case "kit":
       case "item_bundle":
         return getPackImage(item.id);
@@ -172,16 +202,20 @@ export default function Store() {
   };
 
   const getPurchaseStatus = (itemId: string) => {
-    const purchase = userPurchases.find(p => p.itemId === itemId);
+    const purchase = userPurchases.find((p) => p.itemId === itemId);
     return purchase?.status;
   };
 
   const getPurchaseStatusIcon = (status: string) => {
     switch (status) {
-      case "completed": return <CheckCircle className="h-4 w-4 text-neon-green" />;
-      case "pending": return <Clock className="h-4 w-4 text-gold" />;
-      case "failed": return <XCircle className="h-4 w-4 text-redstone" />;
-      default: return null;
+      case "completed":
+        return <CheckCircle className="h-4 w-4 text-neon-green" />;
+      case "pending":
+        return <Clock className="h-4 w-4 text-gold" />;
+      case "failed":
+        return <XCircle className="h-4 w-4 text-redstone" />;
+      default:
+        return null;
     }
   };
 
@@ -203,7 +237,8 @@ export default function Store() {
               indusnetwork Store
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Enhance your gaming experience with premium ranks, exclusive items, and powerful upgrades
+              Enhance your gaming experience with premium ranks, exclusive
+              items, and powerful upgrades
             </p>
           </div>
 
@@ -219,7 +254,10 @@ export default function Store() {
                   className="pl-10 bg-card/50 border-border/50"
                 />
               </div>
-              <Button variant="outline" className="border-primary-blue/30 text-primary-blue">
+              <Button
+                variant="outline"
+                className="border-primary-blue/30 text-primary-blue"
+              >
                 <Filter className="mr-2 h-4 w-4" />
                 Filters
               </Button>
@@ -231,28 +269,50 @@ export default function Store() {
       {/* Store Content */}
       <section className="py-8">
         <div className="container mx-auto px-4">
-          <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
+          <Tabs
+            value={selectedCategory}
+            onValueChange={setSelectedCategory}
+            className="w-full"
+          >
             <TabsList className="grid w-full grid-cols-6 mb-8 bg-card/50">
-              <TabsTrigger value="all" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
+              <TabsTrigger
+                value="all"
+                className="data-[state=active]:bg-primary-blue data-[state=active]:text-white"
+              >
                 All Items
               </TabsTrigger>
-              <TabsTrigger value="ranks" className="data-[state=active]:bg-gold data-[state=active]:text-black">
+              <TabsTrigger
+                value="ranks"
+                className="data-[state=active]:bg-gold data-[state=active]:text-black"
+              >
                 <Crown className="mr-2 h-4 w-4" />
                 Ranks
               </TabsTrigger>
-              <TabsTrigger value="kits" className="data-[state=active]:bg-emerald data-[state=active]:text-black">
+              <TabsTrigger
+                value="kits"
+                className="data-[state=active]:bg-emerald data-[state=active]:text-black"
+              >
                 <Sword className="mr-2 h-4 w-4" />
                 Kits
               </TabsTrigger>
-              <TabsTrigger value="currency" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
+              <TabsTrigger
+                value="currency"
+                className="data-[state=active]:bg-primary-blue data-[state=active]:text-white"
+              >
                 <Coins className="mr-2 h-4 w-4" />
                 Currency
               </TabsTrigger>
-              <TabsTrigger value="cosmetics" className="data-[state=active]:bg-primary-purple data-[state=active]:text-white">
+              <TabsTrigger
+                value="cosmetics"
+                className="data-[state=active]:bg-primary-purple data-[state=active]:text-white"
+              >
                 <Sparkles className="mr-2 h-4 w-4" />
                 Cosmetics
               </TabsTrigger>
-              <TabsTrigger value="items" className="data-[state=active]:bg-diamond data-[state=active]:text-black">
+              <TabsTrigger
+                value="items"
+                className="data-[state=active]:bg-diamond data-[state=active]:text-black"
+              >
                 <Package className="mr-2 h-4 w-4" />
                 Items
               </TabsTrigger>
@@ -267,59 +327,76 @@ export default function Store() {
                     <h2 className="text-2xl font-bold">Popular Items</h2>
                   </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {storeItems.filter(item => item.popular).map((item) => {
-                      const Icon = getItemIcon(item);
-                      const purchaseStatus = getPurchaseStatus(item.id);
-                      
-                      return (
-                        <Card key={item.id} className="gaming-card group relative overflow-hidden">
-                          <div className="absolute top-4 right-4">
-                            <Badge className="bg-primary-blue/20 text-primary-blue border-primary-blue/30 glow-blue">
-                              <Star className="h-3 w-3 mr-1" />
-                              Popular
-                            </Badge>
-                          </div>
-                          
-                          {purchaseStatus && (
-                            <div className="absolute top-4 left-4">
-                              {getPurchaseStatusIcon(purchaseStatus)}
-                            </div>
-                          )}
+                    {storeItems
+                      .filter((item) => item.popular)
+                      .map((item) => {
+                        const Icon = getItemIcon(item);
+                        const purchaseStatus = getPurchaseStatus(item.id);
 
-                          <CardHeader>
-                            <div className="flex items-center justify-center mb-4">
-                              {getItemImage(item) ? (
-                                <img
-                                  src={getItemImage(item)!}
-                                  alt={item.name}
-                                  className="h-16 w-16 group-hover:animate-pulse-glow"
-                                />
-                              ) : (
-                                <Icon className={`h-12 w-12 ${categoryColors[item.category]} group-hover:animate-pulse-glow`} />
-                              )}
+                        return (
+                          <Card
+                            key={item.id}
+                            className="gaming-card group relative overflow-hidden"
+                          >
+                            <div className="absolute top-4 right-4">
+                              <Badge className="bg-primary-blue/20 text-primary-blue border-primary-blue/30 glow-blue">
+                                <Star className="h-3 w-3 mr-1" />
+                                Popular
+                              </Badge>
                             </div>
-                            <CardTitle className="text-xl">{item.name}</CardTitle>
-                            <div className="text-3xl font-bold text-primary-blue">₹{item.price}</div>
-                          </CardHeader>
-                          <CardContent>
-                            <CardDescription className="mb-4 text-sm">
-                              {item.description}
-                            </CardDescription>
-                            <Button 
-                              className="w-full btn-primary text-white font-bold"
-                              onClick={() => {
-                                setSelectedItem(item);
-                                setPurchaseModal(true);
-                              }}
-                              disabled={!auth.isAuthenticated || purchaseStatus === "completed"}
-                            >
-                              {purchaseStatus === "completed" ? "Owned" : 
-                               !auth.isAuthenticated ? "Login to Purchase" : "Purchase"}
-                            </Button>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
+
+                            {purchaseStatus && (
+                              <div className="absolute top-4 left-4">
+                                {getPurchaseStatusIcon(purchaseStatus)}
+                              </div>
+                            )}
+
+                            <CardHeader>
+                              <div className="flex items-center justify-center mb-4">
+                                {getItemImage(item) ? (
+                                  <img
+                                    src={getItemImage(item)!}
+                                    alt={item.name}
+                                    className="h-16 w-16 group-hover:animate-pulse-glow"
+                                  />
+                                ) : (
+                                  <Icon
+                                    className={`h-12 w-12 ${categoryColors[item.category]} group-hover:animate-pulse-glow`}
+                                  />
+                                )}
+                              </div>
+                              <CardTitle className="text-xl">
+                                {item.name}
+                              </CardTitle>
+                              <div className="text-3xl font-bold text-primary-blue">
+                                ₹{item.price}
+                              </div>
+                            </CardHeader>
+                            <CardContent>
+                              <CardDescription className="mb-4 text-sm">
+                                {item.description}
+                              </CardDescription>
+                              <Button
+                                className="w-full btn-primary text-white font-bold"
+                                onClick={() => {
+                                  setSelectedItem(item);
+                                  setPurchaseModal(true);
+                                }}
+                                disabled={
+                                  !auth.isAuthenticated ||
+                                  purchaseStatus === "completed"
+                                }
+                              >
+                                {purchaseStatus === "completed"
+                                  ? "Owned"
+                                  : !auth.isAuthenticated
+                                    ? "Login to Purchase"
+                                    : "Purchase"}
+                              </Button>
+                            </CardContent>
+                          </Card>
+                        );
+                      })}
                   </div>
                 </div>
               )}
@@ -328,10 +405,13 @@ export default function Store() {
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold">
-                    {selectedCategory === "all" ? "All Items" : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`}
+                    {selectedCategory === "all"
+                      ? "All Items"
+                      : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`}
                   </h2>
                   <div className="text-muted-foreground">
-                    {filteredItems.length} item{filteredItems.length !== 1 ? 's' : ''}
+                    {filteredItems.length} item
+                    {filteredItems.length !== 1 ? "s" : ""}
                   </div>
                 </div>
 
@@ -339,9 +419,12 @@ export default function Store() {
                   {filteredItems.map((item) => {
                     const Icon = getItemIcon(item);
                     const purchaseStatus = getPurchaseStatus(item.id);
-                    
+
                     return (
-                      <Card key={item.id} className="gaming-card group relative overflow-hidden">
+                      <Card
+                        key={item.id}
+                        className="gaming-card group relative overflow-hidden"
+                      >
                         {item.popular && (
                           <div className="absolute top-4 right-4">
                             <Badge className="bg-neon-green/20 text-neon-green border-neon-green/30">
@@ -349,7 +432,7 @@ export default function Store() {
                             </Badge>
                           </div>
                         )}
-                        
+
                         {purchaseStatus && (
                           <div className="absolute top-4 left-4">
                             {getPurchaseStatusIcon(purchaseStatus)}
@@ -365,27 +448,37 @@ export default function Store() {
                                 className="h-12 w-12 group-hover:animate-float"
                               />
                             ) : (
-                              <Icon className={`h-10 w-10 ${categoryColors[item.category]} group-hover:animate-float`} />
+                              <Icon
+                                className={`h-10 w-10 ${categoryColors[item.category]} group-hover:animate-float`}
+                              />
                             )}
                           </div>
                           <CardTitle className="text-lg">{item.name}</CardTitle>
-                          <div className="text-2xl font-bold text-primary-blue">₹{item.price}</div>
+                          <div className="text-2xl font-bold text-primary-blue">
+                            ₹{item.price}
+                          </div>
                         </CardHeader>
                         <CardContent>
                           <CardDescription className="mb-4 text-xs line-clamp-2">
                             {item.description}
                           </CardDescription>
-                          <Button 
+                          <Button
                             size="sm"
                             className="w-full bg-blue-purple-gradient hover:glow-blue text-white font-bold"
                             onClick={() => {
                               setSelectedItem(item);
                               setPurchaseModal(true);
                             }}
-                            disabled={!auth.isAuthenticated || purchaseStatus === "completed"}
+                            disabled={
+                              !auth.isAuthenticated ||
+                              purchaseStatus === "completed"
+                            }
                           >
-                            {purchaseStatus === "completed" ? "Owned" : 
-                             !auth.isAuthenticated ? "Login Required" : "Buy Now"}
+                            {purchaseStatus === "completed"
+                              ? "Owned"
+                              : !auth.isAuthenticated
+                                ? "Login Required"
+                                : "Buy Now"}
                           </Button>
                         </CardContent>
                       </Card>
@@ -396,8 +489,12 @@ export default function Store() {
                 {filteredItems.length === 0 && (
                   <div className="text-center py-16">
                     <Package className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                    <h3 className="text-xl font-semibold mb-2">No items found</h3>
-                    <p className="text-muted-foreground">Try adjusting your search or category filter</p>
+                    <h3 className="text-xl font-semibold mb-2">
+                      No items found
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Try adjusting your search or category filter
+                    </p>
                   </div>
                 )}
               </div>
@@ -426,26 +523,38 @@ export default function Store() {
                   <div className="flex items-start gap-4">
                     {(() => {
                       const Icon = getItemIcon(selectedItem);
-                      return <Icon className={`h-12 w-12 ${categoryColors[selectedItem.category]}`} />;
+                      return (
+                        <Icon
+                          className={`h-12 w-12 ${categoryColors[selectedItem.category]}`}
+                        />
+                      );
                     })()}
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg">{selectedItem.name}</h3>
-                      <p className="text-muted-foreground text-sm mb-2">{selectedItem.description}</p>
-                      <div className="text-2xl font-bold text-neon-green">₹{selectedItem.price}</div>
+                      <h3 className="font-semibold text-lg">
+                        {selectedItem.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-2">
+                        {selectedItem.description}
+                      </p>
+                      <div className="text-2xl font-bold text-neon-green">
+                        ₹{selectedItem.price}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {purchaseResult && (
-                <Alert variant={purchaseResult.success ? "default" : "destructive"}>
+                <Alert
+                  variant={purchaseResult.success ? "default" : "destructive"}
+                >
                   <AlertDescription>{purchaseResult.message}</AlertDescription>
                 </Alert>
               )}
 
               <div className="flex gap-2">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="flex-1"
                   onClick={() => setPurchaseModal(false)}
                   disabled={purchasing}

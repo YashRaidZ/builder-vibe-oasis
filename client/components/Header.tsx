@@ -1,7 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Shield, User, ShoppingCart, Settings, BarChart3, LogOut } from "lucide-react";
+import {
+  Shield,
+  User,
+  ShoppingCart,
+  Settings,
+  BarChart3,
+  LogOut,
+} from "lucide-react";
 import { images } from "@/lib/images";
 import { useState } from "react";
 import { LoginModal } from "./auth/LoginModal";
@@ -10,7 +17,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 
@@ -23,10 +30,14 @@ export function Header() {
 
   const getRankColor = (rank: string) => {
     switch (rank.toLowerCase()) {
-      case "vip": return "text-gold";
-      case "mvp": return "text-diamond";
-      case "legend": return "text-emerald";
-      default: return "text-muted-foreground";
+      case "vip":
+        return "text-gold";
+      case "mvp":
+        return "text-diamond";
+      case "legend":
+        return "text-emerald";
+      default:
+        return "text-muted-foreground";
     }
   };
 
@@ -36,18 +47,18 @@ export function Header() {
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-6 md:gap-10">
             <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={images.logos.main}
-              alt="IndusNetwork"
-              className="h-8 w-auto"
-            />
-          </Link>
+              <img
+                src={images.logos.main}
+                alt="IndusNetwork"
+                className="h-8 w-auto"
+              />
+            </Link>
             <nav className="hidden md:flex gap-6">
               <Link
                 to="/"
                 className={cn(
                   "flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
-                  isActive("/") ? "text-foreground" : "text-foreground/60"
+                  isActive("/") ? "text-foreground" : "text-foreground/60",
                 )}
               >
                 Home
@@ -56,7 +67,7 @@ export function Header() {
                 to="/store"
                 className={cn(
                   "flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
-                  isActive("/store") ? "text-foreground" : "text-foreground/60"
+                  isActive("/store") ? "text-foreground" : "text-foreground/60",
                 )}
               >
                 <ShoppingCart className="h-4 w-4 mr-1" />
@@ -67,7 +78,9 @@ export function Header() {
                   to="/stats"
                   className={cn(
                     "flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
-                    isActive("/stats") ? "text-foreground" : "text-foreground/60"
+                    isActive("/stats")
+                      ? "text-foreground"
+                      : "text-foreground/60",
                   )}
                 >
                   <BarChart3 className="h-4 w-4 mr-1" />
@@ -79,7 +92,9 @@ export function Header() {
                   to="/admin"
                   className={cn(
                     "flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
-                    isActive("/admin") ? "text-foreground" : "text-foreground/60"
+                    isActive("/admin")
+                      ? "text-foreground"
+                      : "text-foreground/60",
                   )}
                 >
                   <Settings className="h-4 w-4 mr-1" />
@@ -93,11 +108,18 @@ export function Header() {
               {auth.isAuthenticated ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
                       <User className="h-4 w-4" />
                       <span>{auth.user?.username}</span>
                       {auth.user?.rank && auth.user.rank !== "default" && (
-                        <Badge variant="outline" className={getRankColor(auth.user.rank)}>
+                        <Badge
+                          variant="outline"
+                          className={getRankColor(auth.user.rank)}
+                        >
                           {auth.user.rank.toUpperCase()}
                         </Badge>
                       )}
@@ -110,14 +132,21 @@ export function Header() {
                         My Stats
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={logout} className="flex items-center gap-2 text-destructive">
+                    <DropdownMenuItem
+                      onClick={logout}
+                      className="flex items-center gap-2 text-destructive"
+                    >
                       <LogOut className="h-4 w-4" />
                       Logout
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Button variant="ghost" size="sm" onClick={() => setLoginModalOpen(true)}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLoginModalOpen(true)}
+                >
                   <User className="h-4 w-4 mr-2" />
                   Login
                 </Button>
