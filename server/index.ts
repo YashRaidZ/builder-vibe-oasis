@@ -111,6 +111,8 @@ export function createServer() {
   app.post("/api/store/purchase", createPurchase);
   app.get("/api/store/purchases", getPurchases);
   app.post("/api/store/purchases/:id/retry", retryDelivery);
+  app.get("/api/store/delivery/status", getDeliveryStatus);
+  app.post("/api/store/delivery/manual/:purchaseId", triggerManualDelivery);
 
   // Leaderboard API routes
   app.get("/api/leaderboards", getLeaderboards);
