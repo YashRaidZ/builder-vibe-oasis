@@ -1,5 +1,5 @@
-import { config, apiEndpoints } from '@shared/config';
-import { ApiResponse, PaginatedResponse } from '@shared/types';
+import { config, apiEndpoints } from '../../shared/config';
+import { ApiResponse, PaginatedResponse } from '../../shared/types';
 
 // API Client class for handling all API requests
 class ApiClient {
