@@ -179,7 +179,7 @@ export function LoginModal({ open, onOpenChange }: LoginModalProps) {
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-medium">Step 1: Join the Server</CardTitle>
                 <CardDescription>
-                  Connect to <code className="text-minecraft-green">play.indusmc.com</code>
+                  Connect to <code className="text-minecraft-green">indusnetwork.highms.pro:25826</code>
                 </CardDescription>
               </CardHeader>
             </Card>
