@@ -36,10 +36,10 @@ export default function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-minecraft-green/10 to-transparent" />
         <div className="container relative mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-neon-green/20 text-neon-green border-neon-green/30 glow-green animate-pulse-glow">
+            <Badge className="mb-6 bg-primary-blue/20 text-primary-blue border-primary-blue/30 glow-blue animate-pulse-glow">
               🚀 Now Online - Join 500+ Players
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-neon-green via-neon-cyan to-neon-purple bg-clip-text text-transparent animate-glow-text">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary-blue via-light-blue to-primary-purple bg-clip-text text-transparent animate-glow-text">
               Welcome to indusnetwork
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -58,7 +58,7 @@ export default function Index() {
                   {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
-              <Button size="lg" className="btn-neon text-black font-bold">
+              <Button size="lg" className="btn-primary text-white font-bold">
                 <Play className="mr-2 h-5 w-5" />
                 Join Server Now
               </Button>
@@ -103,7 +103,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="gaming-card group">
               <CardHeader>
-                <Zap className="h-12 w-12 text-neon-green mb-4 group-hover:animate-pulse-glow" />
+                <Zap className="h-12 w-12 text-primary-blue mb-4 group-hover:animate-pulse-glow" />
                 <CardTitle>Instant Delivery</CardTitle>
                 <CardDescription>
                   Purchase items and receive them instantly in-game through our automated delivery system
@@ -121,7 +121,7 @@ export default function Index() {
             </Card>
             <Card className="gaming-card group">
               <CardHeader>
-                <Shield className="h-12 w-12 text-neon-cyan mb-4 group-hover:animate-float" />
+                <Shield className="h-12 w-12 text-light-blue mb-4 group-hover:animate-float" />
                 <CardTitle>Secure Payments</CardTitle>
                 <CardDescription>
                   Safe transactions through Razorpay with instant verification and delivery confirmation
@@ -130,7 +130,7 @@ export default function Index() {
             </Card>
             <Card className="gaming-card group">
               <CardHeader>
-                <BarChart3 className="h-12 w-12 text-neon-purple mb-4 group-hover:glow-purple" />
+                <BarChart3 className="h-12 w-12 text-primary-purple mb-4 group-hover:glow-purple" />
                 <CardTitle>Real-time Stats</CardTitle>
                 <CardDescription>
                   Track your progress with live statistics, achievements, and leaderboards
@@ -139,7 +139,7 @@ export default function Index() {
             </Card>
             <Card className="gaming-card group">
               <CardHeader>
-                <Users className="h-12 w-12 text-gaming-purple mb-4 group-hover:animate-pulse-glow" />
+                <Users className="h-12 w-12 text-dark-purple mb-4 group-hover:animate-pulse-glow" />
                 <CardTitle>Active Community</CardTitle>
                 <CardDescription>
                   Join hundreds of players in events, competitions, and collaborative builds
@@ -248,11 +248,11 @@ export default function Index() {
             Join thousands of players in the ultimate Minecraft experience. Your journey starts now.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-neon text-black font-bold">
+            <Button size="lg" className="btn-primary text-white font-bold">
               <Play className="mr-2 h-5 w-5" />
               Join Server
             </Button>
-            <Button variant="outline" size="lg" className="border-neon-purple text-neon-purple hover:bg-purple-gradient hover:text-white glow-purple">
+            <Button variant="outline" size="lg" className="border-primary-purple text-primary-purple hover:bg-purple-gradient hover:text-white glow-purple">
               <Users className="mr-2 h-5 w-5" />
               Join Discord
             </Button>
