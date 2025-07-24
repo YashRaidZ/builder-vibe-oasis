@@ -132,6 +132,15 @@ export const config = {
     location: process.env.BACKUP_LOCATION || './backups',
   },
 
+  // Delivery Configuration
+  delivery: {
+    enabled: process.env.ENABLE_DELIVERY !== 'false',
+    maxAttempts: parseInt(process.env.DELIVERY_MAX_ATTEMPTS || '3'),
+    retryDelay: parseInt(process.env.DELIVERY_RETRY_DELAY || '60'), // seconds
+    batchSize: parseInt(process.env.DELIVERY_BATCH_SIZE || '10'),
+    processingInterval: parseInt(process.env.DELIVERY_PROCESSING_INTERVAL || '5'), // seconds
+  },
+
   // Development
   dev: {
     devServerUrl: process.env.VITE_DEV_SERVER_URL || 'http://localhost:8080',
