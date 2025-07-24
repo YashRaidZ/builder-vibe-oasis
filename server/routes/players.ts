@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { Player, ApiResponse, PaginatedResponse } from "@shared/types";
+import { Player, ApiResponse, PaginatedResponse } from "../../shared/types";
 
 // Mock data - in production this would connect to your database
 const mockPlayers: Player[] = [
