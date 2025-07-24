@@ -300,11 +300,11 @@ export const RconCommands = {
   ) => {
     const args = [username, item, quantity.toString()];
     if (nbt) args.push(nbt);
-    return rconManager.queueCommand("give", args, 5);
+    return getRconManager().queueCommand("give", args, 5);
   },
 
   setRank: (username: string, rank: string) => {
-    return rconManager.queueCommand(
+    return getRconManager().queueCommand(
       "lp",
       ["user", username, "parent", "set", rank],
       10,
@@ -312,7 +312,7 @@ export const RconCommands = {
   },
 
   giveCoins: (username: string, amount: number) => {
-    return rconManager.queueCommand(
+    return getRconManager().queueCommand(
       "eco",
       ["give", username, amount.toString()],
       5,
@@ -320,38 +320,38 @@ export const RconCommands = {
   },
 
   broadcast: (message: string) => {
-    return rconManager.queueCommand("broadcast", [message], 1);
+    return getRconManager().queueCommand("broadcast", [message], 1);
   },
 
   sendTitle: (username: string, title: string, subtitle?: string) => {
     const commands = [
-      rconManager.queueCommand("title", [username, "title", title], 3),
+      getRconManager().queueCommand("title", [username, "title", title], 3),
     ];
     if (subtitle) {
       commands.push(
-        rconManager.queueCommand("title", [username, "subtitle", subtitle], 3),
+        getRconManager().queueCommand("title", [username, "subtitle", subtitle], 3),
       );
     }
     return commands;
   },
 
   sendMessage: (username: string, message: string) => {
-    return rconManager.queueCommand("tellraw", [username, message], 2);
+    return getRconManager().queueCommand("tellraw", [username, message], 2);
   },
 
   kickPlayer: (username: string, reason: string = "Kicked by admin") => {
-    return rconManager.queueCommand("kick", [username, reason], 8);
+    return getRconManager().queueCommand("kick", [username, reason], 8);
   },
 
   banPlayer: (username: string, reason: string = "Banned by admin") => {
-    return rconManager.queueCommand("ban", [username, reason], 9);
+    return getRconManager().queueCommand("ban", [username, reason], 9);
   },
 
   getOnlinePlayers: () => {
-    return rconManager.executeImmediate("list");
+    return getRconManager().executeImmediate("list");
   },
 
   getServerTps: () => {
-    return rconManager.executeImmediate("tps");
+    return getRconManager().executeImmediate("tps");
   },
 };
