@@ -120,7 +120,7 @@ export function Header() {
                   Login
                 </Button>
               )}
-              <Button size="sm" className="bg-minecraft-gradient hover:bg-minecraft-green">
+              <Button size="sm" className="btn-neon text-black font-bold">
                 Join Server
               </Button>
             </nav>
