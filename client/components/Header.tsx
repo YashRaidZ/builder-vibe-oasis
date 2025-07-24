@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Shield, User, ShoppingCart, Settings, BarChart3, LogOut } from "lucide-react";
+import { images } from "@/lib/images";
 import { useState } from "react";
 import { LoginModal } from "./auth/LoginModal";
 import { useAuth } from "@/hooks/useAuth";
