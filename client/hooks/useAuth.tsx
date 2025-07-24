@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { AuthStatus } from "@shared/auth";
+import { AuthStatus } from "../../shared/auth";
 
 interface AuthContextType {
   auth: AuthStatus;
