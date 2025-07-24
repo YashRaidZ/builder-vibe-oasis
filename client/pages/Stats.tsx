@@ -136,7 +136,7 @@ export default function Stats() {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-24 h-24 bg-card rounded-full flex items-center justify-center gaming-card">
-                <User className="h-12 w-12 text-neon-green" />
+                <User className="h-12 w-12 text-primary-blue" />
               </div>
               
               <div className="flex-1 text-center md:text-left">
@@ -155,7 +155,7 @@ export default function Stats() {
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-neon-green">{playerData.level}</div>
+                    <div className="text-2xl font-bold text-primary-blue">{playerData.level}</div>
                     <div className="text-sm text-muted-foreground">Level</div>
                   </div>
                   <div className="text-center">
@@ -182,7 +182,7 @@ export default function Stats() {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="overview" className="w-full">
             <TabsList className="grid w-full grid-cols-4 mb-8 bg-card/50">
-              <TabsTrigger value="overview" className="data-[state=active]:bg-neon-green data-[state=active]:text-black">
+              <TabsTrigger value="overview" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
                 <BarChart3 className="mr-2 h-4 w-4" />
                 Overview
               </TabsTrigger>
@@ -205,7 +205,7 @@ export default function Stats() {
               <Card className="gaming-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-neon-green" />
+                    <Zap className="h-5 w-5 text-primary-blue" />
                     Experience Progress
                   </CardTitle>
                 </CardHeader>
@@ -213,7 +213,7 @@ export default function Stats() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <span>Level {playerData.level}</span>
-                      <span className="text-neon-green">{formatNumber(playerData.experience)} XP</span>
+                      <span className="text-primary-blue">{formatNumber(playerData.experience)} XP</span>
                     </div>
                     <Progress 
                       value={(playerData.experience % 1000) / 10} 
@@ -231,7 +231,7 @@ export default function Stats() {
                 <Card className="gaming-card">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-lg flex items-center gap-2">
-                      <Activity className="h-5 w-5 text-neon-green" />
+                      <Activity className="h-5 w-5 text-primary-blue" />
                       Activity
                     </CardTitle>
                   </CardHeader>
@@ -266,7 +266,7 @@ export default function Stats() {
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-sm">Kills Ranking</span>
-                        <Badge variant="outline" className="text-neon-green">
+                        <Badge variant="outline" className="text-primary-blue">
                           #{getPlayerRanking("kills") || "N/A"}
                         </Badge>
                       </div>
@@ -297,7 +297,7 @@ export default function Stats() {
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-sm">Current Balance</span>
-                        <span className="font-semibold text-gold">₹{formatNumber(playerData.balance)}</span>
+                        <span className="font-semibold text-primary-purple">₹{formatNumber(playerData.balance)}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Wealth Ranking</span>
