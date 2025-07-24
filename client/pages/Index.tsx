@@ -192,9 +192,9 @@ export default function Index() {
               </CardContent>
             </Card>
             
-            <Card className="relative overflow-hidden border-emerald/50">
+            <Card className="relative overflow-hidden gaming-card border-emerald/50 group">
               <CardHeader>
-                <Sword className="h-12 w-12 text-emerald mb-4" />
+                <Sword className="h-12 w-12 text-emerald mb-4 group-hover:animate-float" />
                 <CardTitle className="text-emerald">Starter Kit</CardTitle>
                 <div className="text-3xl font-bold">₹99</div>
               </CardHeader>
