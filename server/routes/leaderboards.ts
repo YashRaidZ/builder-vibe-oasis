@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { Leaderboard, LeaderboardEntry, ApiResponse } from "@shared/types";
+import { Leaderboard, LeaderboardEntry, ApiResponse } from "../../shared/types";
 
 // Mock leaderboard data
 const mockLeaderboards: Record<string, Leaderboard> = {
