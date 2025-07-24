@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { StoreItem, Purchase, ApiResponse } from "@shared/types";
+import { StoreItem, Purchase, ApiResponse } from "../../shared/types";
 
 // Mock store items
 const mockStoreItems: StoreItem[] = [
