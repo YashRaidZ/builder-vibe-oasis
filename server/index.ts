@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { config } from "@shared/config";
 import { handleDemo } from "./routes/demo";
 import {
   getPlayers,
