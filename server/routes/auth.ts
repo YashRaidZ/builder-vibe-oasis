@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
-import { VerificationRequest, VerificationResponse, VerifyCodeRequest, VerifyCodeResponse, AuthStatus } from "@shared/auth";
-import { config } from "@shared/config";
-import { ApiResponse } from "@shared/types";
+import { VerificationRequest, VerificationResponse, VerifyCodeRequest, VerifyCodeResponse, AuthStatus } from "../../shared/auth";
+import { config } from "../../shared/config";
+import { ApiResponse } from "../../shared/types";
 
 // Mock user database - in production this would be a real database
 const mockUsers = new Map();
