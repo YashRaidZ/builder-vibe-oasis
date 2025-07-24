@@ -61,6 +61,15 @@ export default {
           green: "hsl(var(--minecraft-green))",
           "dark-green": "hsl(var(--minecraft-dark-green))",
         },
+        neon: {
+          green: "hsl(var(--neon-green))",
+          purple: "hsl(var(--neon-purple))",
+          cyan: "hsl(var(--neon-cyan))",
+        },
+        gaming: {
+          purple: "hsl(var(--gaming-purple))",
+          blue: "hsl(var(--gaming-blue))",
+        },
         gold: "hsl(var(--gold))",
         diamond: "hsl(var(--diamond))",
         iron: "hsl(var(--iron))",
