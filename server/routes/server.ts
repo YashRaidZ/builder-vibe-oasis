@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { ServerStats, RconCommand, RconResponse, ServerAction, ApiResponse } from "@shared/types";
+import { ServerStats, RconCommand, RconResponse, ServerAction, ApiResponse } from "../../shared/types";
 
 // Mock server stats - in production this would connect to your Minecraft server
 const mockServerStats: ServerStats = {
