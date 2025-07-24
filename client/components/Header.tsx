@@ -36,11 +36,12 @@ export function Header() {
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-6 md:gap-10">
             <Link to="/" className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-primary-blue" />
-              <span className="inline-block font-bold text-xl bg-blue-purple-gradient bg-clip-text text-transparent animate-glow-text">
-                indusnetwork
-              </span>
-            </Link>
+            <img
+              src={images.logos.main}
+              alt="IndusNetwork"
+              className="h-8 w-auto"
+            />
+          </Link>
             <nav className="hidden md:flex gap-6">
               <Link
                 to="/"
