@@ -101,54 +101,54 @@ export default function Index() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-border/50 hover:border-minecraft-green/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <Zap className="h-12 w-12 text-minecraft-green mb-4" />
+                <Zap className="h-12 w-12 text-neon-green mb-4 group-hover:animate-pulse-glow" />
                 <CardTitle>Instant Delivery</CardTitle>
                 <CardDescription>
                   Purchase items and receive them instantly in-game through our automated delivery system
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-border/50 hover:border-gold/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <Crown className="h-12 w-12 text-gold mb-4" />
+                <Crown className="h-12 w-12 text-gold mb-4 group-hover:glow-gold" />
                 <CardTitle>Premium Ranks</CardTitle>
                 <CardDescription>
                   Unlock VIP, MVP, and LEGEND ranks with exclusive perks, commands, and privileges
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-border/50 hover:border-diamond/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <Shield className="h-12 w-12 text-diamond mb-4" />
+                <Shield className="h-12 w-12 text-neon-cyan mb-4 group-hover:animate-float" />
                 <CardTitle>Secure Payments</CardTitle>
                 <CardDescription>
                   Safe transactions through Razorpay with instant verification and delivery confirmation
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-border/50 hover:border-emerald/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <BarChart3 className="h-12 w-12 text-emerald mb-4" />
+                <BarChart3 className="h-12 w-12 text-neon-purple mb-4 group-hover:glow-purple" />
                 <CardTitle>Real-time Stats</CardTitle>
                 <CardDescription>
                   Track your progress with live statistics, achievements, and leaderboards
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-border/50 hover:border-redstone/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <Users className="h-12 w-12 text-redstone mb-4" />
+                <Users className="h-12 w-12 text-gaming-purple mb-4 group-hover:animate-pulse-glow" />
                 <CardTitle>Active Community</CardTitle>
                 <CardDescription>
                   Join hundreds of players in events, competitions, and collaborative builds
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-border/50 hover:border-iron/50 transition-colors">
+            <Card className="gaming-card group">
               <CardHeader>
-                <Trophy className="h-12 w-12 text-iron mb-4" />
+                <Trophy className="h-12 w-12 text-gold mb-4 group-hover:glow-gold" />
                 <CardTitle>Custom Content</CardTitle>
                 <CardDescription>
                   Experience unique plugins, custom items, and exclusive game modes you won't find elsewhere
