@@ -212,9 +212,9 @@ export default function Index() {
               </CardContent>
             </Card>
             
-            <Card className="relative overflow-hidden border-diamond/50">
+            <Card className="relative overflow-hidden gaming-card border-neon-purple/50 group">
               <CardHeader>
-                <Star className="h-12 w-12 text-diamond mb-4" />
+                <Star className="h-12 w-12 text-neon-purple mb-4 group-hover:glow-purple" />
                 <CardTitle className="text-diamond">1000 Coins</CardTitle>
                 <div className="text-3xl font-bold">₹149</div>
               </CardHeader>
