@@ -103,4 +103,38 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Gaming-specific color variables */
+  :root {
+    --minecraft-green: 142 76% 36%;
+    --minecraft-dark-green: 142 76% 28%;
+    --gold: 45 100% 51%;
+    --diamond: 180 100% 85%;
+    --iron: 220 10% 70%;
+    --emerald: 140 100% 35%;
+    --redstone: 0 100% 50%;
+  }
+
+  .dark {
+    --minecraft-green: 142 76% 40%;
+    --minecraft-dark-green: 142 76% 32%;
+  }
+
+  /* Custom gradient backgrounds */
+  .bg-minecraft-gradient {
+    background: linear-gradient(135deg, hsl(var(--minecraft-dark-green)) 0%, hsl(var(--minecraft-green)) 100%);
+  }
+
+  .bg-gaming-dark {
+    background: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(210 10% 5%) 100%);
+  }
+
+  /* Glow effects for gaming aesthetic */
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--minecraft-green) / 0.3);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3);
+  }
 }
