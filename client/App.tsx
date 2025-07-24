@@ -24,9 +24,9 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen bg-gaming-dark">
+          <div className="min-h-screen bg-gaming-dark flex flex-col">
             <Header />
-            <main>
+            <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/store" element={<Store />} />
@@ -36,6 +36,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
+            <Footer />
           </div>
         </BrowserRouter>
       </AuthProvider>
