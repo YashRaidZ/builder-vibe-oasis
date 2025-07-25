@@ -63,12 +63,12 @@ public class RankManager {
                 // Update LuckPerms group
                 User user = luckPerms.getUserManager().getUser(player.getUniqueId());
                 if (user != null) {
-                    // Clear existing groups
-                    user.data().clear(InheritanceNode.builder().build());
-                    
+                    // Clear existing inheritance nodes
+                    user.data().clear(node -> node instanceof InheritanceNode);
+
                     // Add new group
                     user.data().add(InheritanceNode.builder(rankData.getPermissionGroup()).build());
-                    
+
                     // Save user data
                     luckPerms.getUserManager().saveUser(user);
                     
