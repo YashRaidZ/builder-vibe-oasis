@@ -4,16 +4,22 @@ This guide covers setting up the database for both the IndusNetwork website and 
 
 ## 📊 **Database Options**
 
-### **Option 1: MySQL (Recommended for Production)**
+### **Option 1: PostgreSQL (Recommended for Cloud/Fly.dev)**
+
+- **File**: `indusnetwork_postgresql.sql`
+- **Best for**: Cloud deployments, Fly.dev, modern features
+- **Features**: JSONB support, UUID, advanced indexing, enums
+
+### **Option 2: MySQL (Traditional Production)**
 
 - **File**: `indusnetwork_schema.sql`
-- **Best for**: Production environments, high traffic
+- **Best for**: Traditional hosting, shared hosting
 - **Features**: Full feature set, triggers, events, procedures
 
-### **Option 2: SQLite (Development/Testing)**
+### **Option 3: SQLite (Development/Testing)**
 
 - **File**: `indusnetwork_sqlite.sql`
-- **Best for**: Development, testing, small deployments
+- **Best for**: Local development, testing, small deployments
 - **Features**: Simplified schema, easy setup
 
 ## 🚀 **Quick Setup**
