@@ -63,6 +63,9 @@ public class IndusNetworkPlugin extends JavaPlugin implements Listener {
     
     private void initializeManagers() {
         try {
+            // Initialize MessageUtils first
+            com.indusnetwork.utils.MessageUtils.setPlugin(this);
+
             // Initialize core managers
             this.webAPIManager = new WebAPIManager(this);
             this.databaseManager = new DatabaseManager(this);
@@ -70,7 +73,7 @@ public class IndusNetworkPlugin extends JavaPlugin implements Listener {
             this.rankManager = new RankManager(this);
             this.coinManager = new CoinManager(this);
             this.statsManager = new StatsManager(this);
-            
+
             getLogger().info("All managers initialized successfully!");
         } catch (Exception e) {
             getLogger().severe("Failed to initialize managers: " + e.getMessage());
