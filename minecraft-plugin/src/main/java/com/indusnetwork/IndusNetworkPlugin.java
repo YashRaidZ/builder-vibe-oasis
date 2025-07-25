@@ -10,8 +10,6 @@ import com.indusnetwork.commands.*;
 import com.indusnetwork.listeners.*;
 import com.indusnetwork.managers.*;
 import com.indusnetwork.api.WebAPIManager;
-import com.indusnetwork.database.DatabaseManager;
-import com.indusnetwork.delivery.DeliveryManager;
 
 public class IndusNetworkPlugin extends JavaPlugin implements Listener {
     
