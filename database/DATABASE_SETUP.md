@@ -39,6 +39,7 @@ SELECT COUNT(*) FROM ranks;
 ```
 
 **For Fly.dev specifically:**
+
 ```bash
 # 1. Get your database URL from Fly.dev
 fly postgres connect -a your-postgres-app-name
