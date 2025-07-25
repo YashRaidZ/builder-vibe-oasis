@@ -62,14 +62,20 @@ public class StatsManager {
     private int calculateTotalBlocksBroken(Player player) {
         int total = 0;
         try {
-            // Sum up mining statistics for common blocks
-            for (org.bukkit.Material material : org.bukkit.Material.values()) {
-                if (material.isBlock()) {
+            // Sum up mining statistics for common blocks only
+            org.bukkit.Material[] commonBlocks = {
+                org.bukkit.Material.STONE, org.bukkit.Material.DIRT, org.bukkit.Material.COBBLESTONE,
+                org.bukkit.Material.OAK_LOG, org.bukkit.Material.COAL_ORE, org.bukkit.Material.IRON_ORE
+            };
+
+            for (org.bukkit.Material material : commonBlocks) {
+                try {
                     total += player.getStatistic(Statistic.MINE_BLOCK, material);
+                } catch (Exception ignored) {
+                    // Skip if statistic doesn't exist for this material
                 }
             }
         } catch (Exception e) {
-            // If error occurs, return 0
             return 0;
         }
         return total;
@@ -78,14 +84,20 @@ public class StatsManager {
     private int calculateTotalBlocksPlaced(Player player) {
         int total = 0;
         try {
-            // Sum up placement statistics for common blocks
-            for (org.bukkit.Material material : org.bukkit.Material.values()) {
-                if (material.isBlock()) {
+            // Sum up placement statistics for common blocks only
+            org.bukkit.Material[] commonBlocks = {
+                org.bukkit.Material.STONE, org.bukkit.Material.DIRT, org.bukkit.Material.COBBLESTONE,
+                org.bukkit.Material.OAK_PLANKS, org.bukkit.Material.TORCH, org.bukkit.Material.CHEST
+            };
+
+            for (org.bukkit.Material material : commonBlocks) {
+                try {
                     total += player.getStatistic(Statistic.USE_ITEM, material);
+                } catch (Exception ignored) {
+                    // Skip if statistic doesn't exist for this material
                 }
             }
         } catch (Exception e) {
-            // If error occurs, return 0
             return 0;
         }
         return total;
