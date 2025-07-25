@@ -3,13 +3,19 @@
   functions = "netlify/functions"
   publish = "dist/spa"
 
-
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
-  
+
+# API routes to serverless functions
 [[redirects]]
   force = true
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
+
+# SPA fallback - all other routes serve the React app
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
