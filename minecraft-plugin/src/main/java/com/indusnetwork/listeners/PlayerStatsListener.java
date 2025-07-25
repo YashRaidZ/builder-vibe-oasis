@@ -28,8 +28,8 @@ public class PlayerStatsListener implements Listener {
         switch (event.getStatistic()) {
             case PLAYER_KILLS:
             case DEATHS:
-            case BLOCKS_MINED:
-            case BLOCKS_PLACED:
+            case MINE_BLOCK:
+            case USE_ITEM:
                 // Sync important stats immediately
                 plugin.getServer().getScheduler().runTaskLaterAsynchronously(plugin, () -> {
                     plugin.getStatsManager().syncPlayerStats(event.getPlayer());
