@@ -1,0 +1,8 @@
+# SPA redirect rules for client-side routing
+# This ensures all non-API routes are served by the React app
+
+# API routes should go to the serverless function
+/api/* /.netlify/functions/api/:splat 200
+
+# All other routes should serve the React app (SPA)
+/* /index.html 200
