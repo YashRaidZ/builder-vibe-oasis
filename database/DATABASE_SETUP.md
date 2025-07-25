@@ -5,11 +5,13 @@ This guide covers setting up the database for both the IndusNetwork website and 
 ## 📊 **Database Options**
 
 ### **Option 1: MySQL (Recommended for Production)**
+
 - **File**: `indusnetwork_schema.sql`
 - **Best for**: Production environments, high traffic
 - **Features**: Full feature set, triggers, events, procedures
 
 ### **Option 2: SQLite (Development/Testing)**
+
 - **File**: `indusnetwork_sqlite.sql`
 - **Best for**: Development, testing, small deployments
 - **Features**: Simplified schema, easy setup
@@ -17,6 +19,7 @@ This guide covers setting up the database for both the IndusNetwork website and 
 ## 🚀 **Quick Setup**
 
 ### **MySQL Setup**
+
 ```bash
 # 1. Create database and import schema
 mysql -u root -p
@@ -34,6 +37,7 @@ FLUSH PRIVILEGES;"
 ```
 
 ### **SQLite Setup**
+
 ```bash
 # 1. Create database file
 sqlite3 indusnetwork.db < database/indusnetwork_sqlite.sql
@@ -47,6 +51,7 @@ sqlite3 indusnetwork.db "SELECT COUNT(*) FROM ranks;"
 ### **Core Tables**
 
 #### **User Management**
+
 - `users` - Website user accounts
 - `user_sessions` - Active user sessions
 - `minecraft_players` - Minecraft player data
@@ -54,10 +59,12 @@ sqlite3 indusnetwork.db "SELECT COUNT(*) FROM ranks;"
 - `player_login_history` - Login tracking
 
 #### **Rank System**
+
 - `ranks` - Available server ranks
 - `player_rank_history` - Rank change history
 
 #### **Store System**
+
 - `store_categories` - Item categories (ranks, kits, etc.)
 - `store_items` - Purchasable items
 - `transactions` - Purchase transactions
@@ -65,10 +72,12 @@ sqlite3 indusnetwork.db "SELECT COUNT(*) FROM ranks;"
 - `delivery_attempts` - Delivery attempt logs
 
 #### **Leaderboards**
+
 - `leaderboard_types` - Leaderboard configurations
 - `leaderboard_cache` - Cached leaderboard data
 
 #### **System**
+
 - `system_config` - Application configuration
 - `audit_log` - Action audit trail
 - `server_actions` - Server management actions
@@ -76,6 +85,7 @@ sqlite3 indusnetwork.db "SELECT COUNT(*) FROM ranks;"
 ## 🔧 **Configuration**
 
 ### **Environment Variables**
+
 Update your `.env` file with database connection details:
 
 ```bash
@@ -92,11 +102,12 @@ DATABASE_URL=sqlite:./indusnetwork.db
 ```
 
 ### **Minecraft Plugin Configuration**
+
 Update `plugins/IndusNetworkPlugin/config.yml`:
 
 ```yaml
 database:
-  type: "mysql"  # or "sqlite"
+  type: "mysql" # or "sqlite"
   host: "localhost"
   port: 3306
   database: "indusnetwork"
@@ -108,22 +119,24 @@ database:
 ## 📋 **Default Data**
 
 ### **Ranks System**
+
 The schema includes 10 default ranks:
 
-| Rank | Display Name | Price (₹) | Coins Multiplier |
-|------|-------------|-----------|------------------|
-| default | Default | ₹0 | 1.0x |
-| vip | VIP | ₹199 | 1.5x |
-| mvp | MVP | ₹499 | 2.0x |
-| legend | LEGEND | ₹999 | 2.5x |
-| champion | CHAMPION | ₹1,499 | 3.0x |
-| master | MASTER | ₹1,799 | 3.5x |
-| grandmaster | GRANDMASTER | ₹1,999 | 4.0x |
-| elite | ELITE | ₹2,199 | 4.5x |
-| supreme | SUPREME | ₹2,349 | 5.0x |
-| ultimate | ULTIMATE | ₹2,499 | 6.0x |
+| Rank        | Display Name | Price (₹) | Coins Multiplier |
+| ----------- | ------------ | --------- | ---------------- |
+| default     | Default      | ₹0        | 1.0x             |
+| vip         | VIP          | ₹199      | 1.5x             |
+| mvp         | MVP          | ₹499      | 2.0x             |
+| legend      | LEGEND       | ₹999      | 2.5x             |
+| champion    | CHAMPION     | ₹1,499    | 3.0x             |
+| master      | MASTER       | ₹1,799    | 3.5x             |
+| grandmaster | GRANDMASTER  | ₹1,999    | 4.0x             |
+| elite       | ELITE        | ₹2,199    | 4.5x             |
+| supreme     | SUPREME      | ₹2,349    | 5.0x             |
+| ultimate    | ULTIMATE     | ₹2,499    | 6.0x             |
 
 ### **Store Categories**
+
 - **Ranks** - Premium server ranks
 - **Kits** - Starter equipment packages
 - **Currency** - Server coins
@@ -131,6 +144,7 @@ The schema includes 10 default ranks:
 - **Tools** - Special equipment
 
 ### **Admin Account**
+
 - **Username**: `admin`
 - **Email**: `admin@indusnetwork.com`
 - **Password**: `admin123` ⚠️ **Change this immediately!**
@@ -138,12 +152,14 @@ The schema includes 10 default ranks:
 ## 🔐 **Security Setup**
 
 ### **1. Change Default Passwords**
+
 ```sql
 -- Update admin password (use a proper hash)
 UPDATE users SET password_hash = '$2b$12$NEW_HASH_HERE' WHERE username = 'admin';
 ```
 
 ### **2. Database User Permissions**
+
 ```sql
 -- Create read-only user for reporting
 CREATE USER 'indusnetwork_readonly'@'localhost' IDENTIFIED BY 'readonly_password';
@@ -155,7 +171,9 @@ GRANT SELECT, LOCK TABLES ON indusnetwork.* TO 'indusnetwork_backup'@'localhost'
 ```
 
 ### **3. Enable Binary Logging (MySQL)**
+
 Add to `/etc/mysql/mysql.conf.d/mysqld.cnf`:
+
 ```ini
 log-bin = /var/log/mysql/mysql-bin.log
 binlog_format = ROW
@@ -165,12 +183,13 @@ expire_logs_days = 7
 ## 📊 **Monitoring & Maintenance**
 
 ### **Performance Monitoring**
+
 ```sql
 -- Check table sizes
-SELECT 
+SELECT
     table_name,
     ROUND(((data_length + index_length) / 1024 / 1024), 2) AS 'Size (MB)'
-FROM information_schema.tables 
+FROM information_schema.tables
 WHERE table_schema = 'indusnetwork'
 ORDER BY (data_length + index_length) DESC;
 
@@ -179,6 +198,7 @@ SHOW PROCESSLIST;
 ```
 
 ### **Maintenance Procedures**
+
 ```sql
 -- Clean expired sessions (run hourly)
 CALL CleanExpiredSessions();
@@ -191,6 +211,7 @@ CALL CleanupFailedDeliveries();
 ```
 
 ### **Backup Commands**
+
 ```bash
 # Full backup
 mysqldump --single-transaction --routines --triggers indusnetwork > backup_$(date +%Y%m%d).sql
@@ -205,6 +226,7 @@ sqlite3 indusnetwork.db ".backup backup_$(date +%Y%m%d).db"
 ## 🔄 **Database Migrations**
 
 ### **Adding New Columns**
+
 ```sql
 -- Example: Add new column to players table
 ALTER TABLE minecraft_players ADD COLUMN discord_id VARCHAR(20) NULL;
@@ -212,7 +234,9 @@ ALTER TABLE minecraft_players ADD INDEX idx_discord_id (discord_id);
 ```
 
 ### **Schema Updates**
+
 When updating the schema:
+
 1. **Backup** the database first
 2. **Test** on development environment
 3. **Document** the changes
@@ -223,6 +247,7 @@ When updating the schema:
 ### **Common Issues**
 
 #### **Connection Refused**
+
 ```bash
 # Check MySQL service
 sudo systemctl status mysql
@@ -234,6 +259,7 @@ chmod 664 indusnetwork.db
 ```
 
 #### **Foreign Key Constraints**
+
 ```sql
 -- Disable foreign key checks temporarily
 SET FOREIGN_KEY_CHECKS = 0;
@@ -242,6 +268,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 ```
 
 #### **Character Encoding Issues**
+
 ```sql
 -- Check current encoding
 SHOW VARIABLES LIKE 'character_set%';
@@ -251,6 +278,7 @@ ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_
 ```
 
 ### **Performance Issues**
+
 ```sql
 -- Check missing indexes
 SELECT * FROM sys.statements_with_temp_tables;
@@ -262,7 +290,9 @@ EXPLAIN SELECT * FROM minecraft_players WHERE minecraft_username = 'player';
 ## 📈 **Scaling Considerations**
 
 ### **Read Replicas**
+
 For high traffic, consider MySQL read replicas:
+
 ```sql
 -- On master
 CREATE USER 'replicator'@'%' IDENTIFIED BY 'replica_password';
@@ -270,7 +300,9 @@ GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%';
 ```
 
 ### **Partitioning**
+
 For large audit logs:
+
 ```sql
 -- Partition audit_log by month
 ALTER TABLE audit_log PARTITION BY RANGE (TO_DAYS(created_at)) (
@@ -280,7 +312,9 @@ ALTER TABLE audit_log PARTITION BY RANGE (TO_DAYS(created_at)) (
 ```
 
 ### **Caching**
+
 Implement Redis for:
+
 - Session storage
 - Leaderboard cache
 - Frequently accessed config
@@ -288,23 +322,27 @@ Implement Redis for:
 ## 🎯 **Best Practices**
 
 ### **1. Regular Maintenance**
+
 - **Daily**: Check disk space, backup
 - **Weekly**: Analyze slow queries, update statistics
 - **Monthly**: Review indexes, cleanup old data
 
 ### **2. Security**
+
 - Use strong passwords
 - Enable SSL connections
 - Regular security updates
 - Audit user access
 
 ### **3. Monitoring**
+
 - Set up alerts for disk space
 - Monitor connection counts
 - Track query performance
 - Log failed login attempts
 
 ### **4. Backup Strategy**
+
 - **Full backup**: Daily
 - **Incremental**: Hourly
 - **Test restores**: Monthly

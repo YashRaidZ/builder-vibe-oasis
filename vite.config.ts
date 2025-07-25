@@ -14,7 +14,7 @@ export default defineConfig(({ mode, command }) => ({
   plugins: [
     react(),
     // Only include express plugin during development
-    ...(command === "serve" ? [expressPlugin()] : [])
+    ...(command === "serve" ? [expressPlugin()] : []),
   ],
   resolve: {
     alias: {
