@@ -46,12 +46,14 @@ public class StatsManager {
         try {
             stats.kills = player.getStatistic(Statistic.PLAYER_KILLS);
             stats.deaths = player.getStatistic(Statistic.DEATHS);
-            stats.blocksBroken = player.getStatistic(Statistic.BLOCKS_MINED);
-            stats.blocksPlaced = player.getStatistic(Statistic.BLOCKS_PLACED);
+            // Use correct statistic names for 1.20.4
+            stats.blocksBroken = player.getStatistic(Statistic.MINE_BLOCK, org.bukkit.Material.STONE);
+            stats.blocksPlaced = player.getStatistic(Statistic.USE_ITEM, org.bukkit.Material.STONE);
             stats.distanceWalked = player.getStatistic(Statistic.WALK_ONE_CM);
             stats.playtimeMinutes = player.getStatistic(Statistic.PLAY_ONE_MINUTE) / 1200; // Convert ticks to minutes
         } catch (Exception e) {
-            // Some statistics might not be available
+            // Some statistics might not be available, use defaults
+            plugin.getLogger().warning("Could not load some statistics for " + player.getName() + ": " + e.getMessage());
         }
     }
     
