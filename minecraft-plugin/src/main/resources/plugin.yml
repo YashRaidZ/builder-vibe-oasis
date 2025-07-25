@@ -1,0 +1,122 @@
+name: IndusNetworkPlugin
+main: com.indusnetwork.IndusNetworkPlugin
+version: 1.0.0
+api-version: 1.20
+author: IndusNetwork Development Team
+description: Official IndusNetwork plugin for website integration
+website: https://indusnetwork.highms.pro
+
+# Plugin Dependencies
+depend: [Vault, LuckPerms]
+softdepend: [PlaceholderAPI, EssentialsX]
+
+# Commands
+commands:
+  coins:
+    description: Check your coin balance
+    usage: /coins [player]
+    permission: indusnetwork.coins
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  rank:
+    description: Check your rank information
+    usage: /rank [player]
+    permission: indusnetwork.rank
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  stats:
+    description: View your statistics
+    usage: /stats [player]
+    permission: indusnetwork.stats
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  verify:
+    description: Verify your account with the website
+    usage: /verify <code>
+    permission: indusnetwork.verify
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  shop:
+    description: Open the server shop
+    usage: /shop
+    permission: indusnetwork.shop
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  indus:
+    description: Main IndusNetwork command
+    usage: /indus <subcommand>
+    permission: indusnetwork.main
+    permission-message: "&cYou don't have permission to use this command!"
+    
+  indusadmin:
+    description: Admin commands for IndusNetwork
+    usage: /indusadmin <subcommand>
+    permission: indusnetwork.admin
+    permission-message: "&cYou don't have permission to use this command!"
+
+# Permissions
+permissions:
+  # User permissions
+  indusnetwork.coins:
+    description: Allows viewing coin balance
+    default: true
+    
+  indusnetwork.rank:
+    description: Allows viewing rank information
+    default: true
+    
+  indusnetwork.stats:
+    description: Allows viewing statistics
+    default: true
+    
+  indusnetwork.verify:
+    description: Allows account verification
+    default: true
+    
+  indusnetwork.shop:
+    description: Allows access to the shop
+    default: true
+    
+  indusnetwork.main:
+    description: Allows basic IndusNetwork commands
+    default: true
+    
+  # Admin permissions
+  indusnetwork.admin:
+    description: Full admin access to IndusNetwork features
+    default: op
+    children:
+      - indusnetwork.admin.coins
+      - indusnetwork.admin.ranks
+      - indusnetwork.admin.stats
+      - indusnetwork.admin.delivery
+      - indusnetwork.admin.reload
+    
+  indusnetwork.admin.coins:
+    description: Allows managing player coins
+    default: op
+    
+  indusnetwork.admin.ranks:
+    description: Allows managing player ranks
+    default: op
+    
+  indusnetwork.admin.stats:
+    description: Allows viewing/editing player stats
+    default: op
+    
+  indusnetwork.admin.delivery:
+    description: Allows managing delivery system
+    default: op
+    
+  indusnetwork.admin.reload:
+    description: Allows reloading plugin configuration
+    default: op
+    
+  # Special permissions
+  indusnetwork.bypass:
+    description: Bypasses certain restrictions
+    default: false
+    
+  indusnetwork.notify:
+    description: Receives admin notifications
+    default: false
