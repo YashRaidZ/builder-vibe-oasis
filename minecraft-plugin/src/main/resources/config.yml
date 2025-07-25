@@ -1,0 +1,127 @@
+# IndusNetwork Plugin Configuration
+
+# Website Integration
+website:
+  url: "https://your-website-url.com"
+  api_key: "your_api_key_here"
+  webhook_secret: "your_webhook_secret_here"
+
+# Database Settings
+database:
+  type: "mysql" # mysql, sqlite, mongodb
+  host: "localhost"
+  port: 3306
+  database: "indusnetwork"
+  username: "username"
+  password: "password"
+  table_prefix: "indus_"
+
+# Redis Settings (for caching)
+redis:
+  enabled: true
+  host: "localhost"
+  port: 6379
+  password: ""
+  database: 0
+
+# Plugin Settings
+settings:
+  # Auto rank verification
+  auto_verify_ranks: true
+  verify_on_join: true
+  
+  # Delivery system
+  auto_delivery: true
+  delivery_check_interval: 30 # seconds
+  
+  # Stats tracking
+  track_stats: true
+  stats_save_interval: 300 # seconds (5 minutes)
+  
+  # Coins system
+  starting_coins: 100
+  daily_bonus: 50
+  
+  # Messages
+  prefix: "&6[&bIndusNetwork&6] "
+  
+# Rank System
+ranks:
+  default:
+    display_name: "&7Default"
+    permission_group: "default"
+    coins_multiplier: 1.0
+  vip:
+    display_name: "&a&lVIP"
+    permission_group: "vip"
+    coins_multiplier: 1.5
+  mvp:
+    display_name: "&b&lMVP"
+    permission_group: "mvp"
+    coins_multiplier: 2.0
+  legend:
+    display_name: "&6&lLEGEND"
+    permission_group: "legend"
+    coins_multiplier: 2.5
+  champion:
+    display_name: "&c&lCHAMPION"
+    permission_group: "champion"
+    coins_multiplier: 3.0
+  master:
+    display_name: "&4&lMASTER"
+    permission_group: "master"
+    coins_multiplier: 3.5
+  grandmaster:
+    display_name: "&5&lGRANDMASTER"
+    permission_group: "grandmaster"
+    coins_multiplier: 4.0
+  elite:
+    display_name: "&d&lELITE"
+    permission_group: "elite"
+    coins_multiplier: 4.5
+  supreme:
+    display_name: "&e&lSUPREME"
+    permission_group: "supreme"
+    coins_multiplier: 5.0
+  ultimate:
+    display_name: "&f&lULTIMATE"
+    permission_group: "ultimate"
+    coins_multiplier: 6.0
+
+# Messages
+messages:
+  # General
+  no_permission: "{prefix}&cYou don't have permission to use this command!"
+  player_only: "{prefix}&cThis command can only be used by players!"
+  player_not_found: "{prefix}&cPlayer not found!"
+  
+  # Verification
+  verify_success: "{prefix}&aAccount verified successfully! Welcome to IndusNetwork!"
+  verify_failed: "{prefix}&cVerification failed. Please check your verification code."
+  already_verified: "{prefix}&6You are already verified!"
+  
+  # Ranks
+  rank_updated: "{prefix}&aYour rank has been updated to {rank}&a!"
+  rank_info: "{prefix}&6Your current rank: {rank}"
+  
+  # Coins
+  coins_balance: "{prefix}&6Your coins: &e{coins}"
+  coins_added: "{prefix}&a+{amount} coins added to your account!"
+  coins_removed: "{prefix}&c-{amount} coins removed from your account!"
+  insufficient_coins: "{prefix}&cYou don't have enough coins!"
+  
+  # Stats
+  stats_header: "{prefix}&6=== Your Stats ==="
+  kills: "&6Kills: &e{kills}"
+  deaths: "&6Deaths: &e{deaths}"
+  kdr: "&6K/D Ratio: &e{kdr}"
+  playtime: "&6Playtime: &e{playtime}"
+  
+  # Shop
+  shop_gui_title: "IndusNetwork Shop"
+  purchase_success: "{prefix}&aPurchase successful! Items will be delivered shortly."
+  purchase_failed: "{prefix}&cPurchase failed. Please try again."
+  
+  # Delivery
+  delivery_received: "{prefix}&aYou have received: &e{item}"
+  delivery_failed: "{prefix}&cFailed to deliver {item}. Please contact support."
