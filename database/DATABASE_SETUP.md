@@ -24,6 +24,32 @@ This guide covers setting up the database for both the IndusNetwork website and 
 
 ## 🚀 **Quick Setup**
 
+### **PostgreSQL Setup (Recommended for Fly.dev)**
+
+```bash
+# 1. Connect to your PostgreSQL database
+psql $DATABASE_URL
+
+# 2. Import the schema
+\i database/indusnetwork_postgresql.sql
+
+# 3. Verify setup
+SELECT COUNT(*) FROM ranks;
+\q
+```
+
+**For Fly.dev specifically:**
+```bash
+# 1. Get your database URL from Fly.dev
+fly postgres connect -a your-postgres-app-name
+
+# 2. Import schema
+\i database/indusnetwork_postgresql.sql
+
+# 3. Exit
+\q
+```
+
 ### **MySQL Setup**
 
 ```bash
