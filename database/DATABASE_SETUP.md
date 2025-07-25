@@ -121,7 +121,15 @@ sqlite3 indusnetwork.db "SELECT COUNT(*) FROM ranks;"
 Update your `.env` file with database connection details:
 
 ```bash
-# MySQL Configuration
+# PostgreSQL Configuration (Fly.dev/Cloud)
+DATABASE_URL=postgresql://username:password@hostname:5432/database_name
+DATABASE_HOST=hostname
+DATABASE_PORT=5432
+DATABASE_NAME=database_name
+DATABASE_USER=username
+DATABASE_PASSWORD=password
+
+# MySQL Configuration (Traditional hosting)
 DATABASE_URL=mysql://indusnetwork:password@localhost:3306/indusnetwork
 DATABASE_HOST=localhost
 DATABASE_PORT=3306
@@ -129,7 +137,7 @@ DATABASE_NAME=indusnetwork
 DATABASE_USER=indusnetwork
 DATABASE_PASSWORD=your_secure_password
 
-# SQLite Configuration (alternative)
+# SQLite Configuration (Development)
 DATABASE_URL=sqlite:./indusnetwork.db
 ```
 
